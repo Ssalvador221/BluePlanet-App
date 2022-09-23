@@ -82,7 +82,7 @@ public class RegistroScreen extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 switch (task){
-                                    case task:
+                                    case 'a' : FirebaseAuthWeakPasswordException ->
                                 }
                             }
                         });
@@ -92,5 +92,5 @@ public class RegistroScreen extends AppCompatActivity {
 
         
     }
- 
+
 }
