@@ -26,9 +26,13 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthEmailException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 import org.w3c.dom.Text;
+
+import java.nio.charset.StandardCharsets;
 
 import javax.annotation.meta.When;
 
@@ -78,19 +82,25 @@ public class RegistroScreen extends AppCompatActivity {
                                     binding.senhaText.setText("");
                                 }
                             }
-                        }).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        }).addOnFailureListener(new OnFailureListener() {
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                switch (task){
-                                    case 'a' : FirebaseAuthWeakPasswordException ->
-                                }
+                            public void onFailure(@NonNull Exception e) {
+                               switch (e){
+                                   case 1 : {
+                                      new  FirebaseAuthWeakPasswordException("", "","");
+                                   }
+
+
+                               }
+
+
                             }
                         });
                 }
-            }
-        });
-
-        
+                 }
+             });
+        }
     }
 
-}
+
+
