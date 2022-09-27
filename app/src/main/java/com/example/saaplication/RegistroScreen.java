@@ -2,8 +2,10 @@ package com.example.saaplication;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Size;
 import android.util.TypedValue;
 import android.view.View;
@@ -19,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.saaplication.databinding.ActivityRegistroScrenBinding;
+import com.example.saaplication.modelo.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -29,7 +32,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthEmailException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.auth.User;
 
+import org.checkerframework.checker.guieffect.qual.UI;
 import org.w3c.dom.Text;
 
 import java.nio.charset.StandardCharsets;
@@ -38,69 +44,66 @@ import javax.annotation.meta.When;
 
 public class RegistroScreen extends AppCompatActivity {
 
-    private ActivityRegistroScrenBinding binding;
-    FirebaseAuth auth;
-
+    private EditText etNome;
+    private EditText etEmail;
+    private EditText etSenha;
+    private Button btCadastrar;
+    private FirebaseAuth mAuth;
+    private Usuario u;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        binding = ActivityRegistroScrenBinding.inflate(getLayoutInflater());
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_registro_scren);
+        etNome = findViewById(R.id.name_box);
+        etEmail = findViewById(R.id.email_text);
+        etSenha = findViewById(R.id.senha_text);
+        btCadastrar = findViewById(R.id.bt_registrar);
+        mAuth = FirebaseAuth.getInstance();
 
-        setContentView(binding.getRoot());
-
-
-        binding.btRegistrar.setOnClickListener(new View.OnClickListener() {
+        btCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                EditText nome = binding.nameBox;
-                EditText email = binding.emailText;
-                EditText senha = binding.senhaText;
-
-                auth = FirebaseAuth.getInstance();
-
-                if (TextUtils.isEmpty(nome.getText().toString()) || TextUtils.isEmpty(email.getText().toString()) || TextUtils.isEmpty(senha.getText().toString())){
-                    Snackbar mySnackbar = Snackbar.make(v, "Preencha todos os Campos!", Snackbar.LENGTH_SHORT);
-                    mySnackbar.getView().setBackgroundColor(Color.parseColor("#ffa500"));
-                    mySnackbar.setTextColor(Color.parseColor("#ffffff"));
-                    mySnackbar.show();
-                }else{
-                        auth.createUserWithEmailAndPassword(email.getText().toString(), senha.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Snackbar mySnackbar = Snackbar.make(v, "Sucesso ao Cadastrar o Usuário!", Snackbar.LENGTH_SHORT);
-                                    mySnackbar.getView().setBackgroundColor(Color.parseColor("#ffa500"));
-                                    mySnackbar.setTextColor(Color.parseColor("#ffffff"));
-                                    mySnackbar.show();
-                                    binding.nameBox.setText("");
-                                    binding.emailText.setText("");
-                                    binding.senhaText.setText("");
-                                }
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                               switch (e){
-                                   case 1 : {
-                                      new  FirebaseAuthWeakPasswordException("", "","");
-                                   }
+                //recuperarDados();
+                criarLogin();
+            }
+        });
 
 
-                               }
-
-
-                            }
-                        });
-                }
-                 }
-             });
-        }
     }
+
+    private void criarLogin() {
+        mAuth.createUserWithEmailAndPassword(u.getEmail(),u.getSenha())
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            u.setId(user.getUid());
+                            u.salvarDados();
+                        }else{
+                            Snackbar mySnackbar = Snackbar.make(btCadastrar, "Preencha todos os Campos!", Snackbar.LENGTH_SHORT);
+                            mySnackbar.getView().setBackgroundColor(Color.parseColor("#ffa500"));
+                            mySnackbar.setTextColor(Color.parseColor("#ffffff"));
+                            mySnackbar.show();
+                        }
+                    }
+                });
+    }
+
+
+
+//    private void recuperarDados() {
+//        if(etNome.getText().toString()==""||etEmail.getText().toString()==""||etSenha.getText().toString()==""){
+//            Toast.makeText(RegistroScreen.this,"Você deve preencher todos os Dados corretamente!",Toast.LENGTH_LONG);
+//        }else{
+//            u = new Usuario();
+//            u.setNome(etNome.getText().toString());
+//            u.setEmail(etEmail.getText().toString());
+//            u.setSenha(etSenha.getText().toString());
+//        }
+//    }
+}
 
 
 
