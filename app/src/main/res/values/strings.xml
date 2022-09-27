@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SaAplication</string>
+    <string name="login">Login</string>
+    <string name="email">E-mail: </string>
+    <string name="senha">Senha </string>
+    <string name="entrar">Entrar </string>
+    <string name="esqueceu">Esqueceu a Senha? </string>
 </resources>
