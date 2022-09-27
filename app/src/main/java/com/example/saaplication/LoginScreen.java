@@ -31,6 +31,7 @@ public class LoginScreen extends AppCompatActivity {
             public void onClick(View v) {
                 receberDados();
                 logar();
+
             }
         });
     }
