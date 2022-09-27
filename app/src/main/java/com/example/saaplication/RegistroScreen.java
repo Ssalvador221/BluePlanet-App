@@ -64,7 +64,7 @@ public class RegistroScreen extends AppCompatActivity {
         btCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //recuperarDados();
+                recuperarDados();
                 criarLogin();
             }
         });
@@ -93,16 +93,16 @@ public class RegistroScreen extends AppCompatActivity {
 
 
 
-//    private void recuperarDados() {
-//        if(etNome.getText().toString()==""||etEmail.getText().toString()==""||etSenha.getText().toString()==""){
-//            Toast.makeText(RegistroScreen.this,"Você deve preencher todos os Dados corretamente!",Toast.LENGTH_LONG);
-//        }else{
-//            u = new Usuario();
-//            u.setNome(etNome.getText().toString());
-//            u.setEmail(etEmail.getText().toString());
-//            u.setSenha(etSenha.getText().toString());
-//        }
-//    }
+    private void recuperarDados() {
+        if(etNome.getText().toString()==""||etEmail.getText().toString()==""||etSenha.getText().toString()==""){
+            Toast.makeText(RegistroScreen.this,"Você deve preencher todos os Dados corretamente!",Toast.LENGTH_LONG);
+        }else{
+            u = new Usuario();
+            u.setNome(etNome.getText().toString());
+            u.setEmail(etEmail.getText().toString());
+           u.setSenha(etSenha.getText().toString());
+        }
+    }
 }
 
 

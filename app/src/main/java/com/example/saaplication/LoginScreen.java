@@ -1,3 +1,4 @@
+
 package com.example.saaplication;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +14,9 @@ public class LoginScreen extends AppCompatActivity {
     private EditText etEmail;
     private EditText etSenha;
     private Button btCadastrar;
+    private ProgessBar progessBar;
     private FirebaseAuth mAuth;
+    String[] mensagens = {"Preencha todos os campos","Login efetuado com sucesso"}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,44 +24,62 @@ public class LoginScreen extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login_screen);
-        mAuth = FirebaseAuth.getInstance();
-        etEmail = findViewById(R.id.etEmail);
-        etSenha = findViewById(R.id.etSenha);
-        btCadastrar = findById(R.id.btLogar);
 
-        btCadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                receberDados();
-                logar();
+        getSupportActionBar().hide();
+        IniciarComponentes();
+    }
 
+    btCadastrar.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            String email = etEmail.getText().toString();
+            String senha = etSenha.getText().toString();
+
+            if (email.isEmpty() || senha.isEmpty()) {
+                Snackbar snackbar = Snackbar.make(v, mensagens[0], Snackbar.LENGHT_SHORT);
+                snackbar.setBackgroundTint("#ffa500");
+                snackbar.setTextColor("#ffffff");
+                snackbar.show();
+             }else{
+                AutenticarUsuario()
             }
         });
     }
 
-    private void logar() {
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(LoginScreen.this,Home.class));
+    private void AutenticarUsuario(){
 
-                        } else {
+        String email = etEmail.getText().toString();
+        String senha = etSenha.getText().toString();
 
-                            Toast.makeText(LoginScreen.this, "Autenticação falhou",
-                                    Toast.LENGTH_SHORT).show();
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email,senha).addOncompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()){
+                    progessBar.setVisibility(View.VISIBLE);
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Home();
                         }
-                    }
-                });
+                    }, 5000)
+                }
+            }
+        });
     }
 
-    private void receberDados() {
+    private void Home(){
+        Intent intent = new Intent(RegistroScreen.this,Home.class);
+        startActivity(intent);
+        finish();
+    }
 
-        u = new Usuario();
-        u.setEmail(etEmail.getText().toString());
-        u.setSenha(etSenha.getText().toString());
-
+    private void IniciarComponentes(){
+        etEmail = findViewById(R.id.etEmail);
+        etSenha = findViewById(R.id.etSenha);
+        btCadastrar = findViewById(R.id.btcadastrar)
+        progessBar = findViewById(R.id.progressbar)
     }
 }
