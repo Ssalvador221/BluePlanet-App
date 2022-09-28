@@ -40,7 +40,7 @@
         android:drawableStart="@drawable/custom_person"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Nome"
         android:inputType="textPersonName"
         android:padding="20px"
         android:paddingStart="12dp"
