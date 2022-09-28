@@ -1,6 +1,7 @@
 package com.example.saaplication;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,7 +41,6 @@ public class RegistroScreen extends AppCompatActivity {
     String erro;
     String UsuarioId;
     FirebaseAuth auth;
-    String[] mensagens = {"Preencha todos os Campos solicitados!", "Usuário Criado com Sucesso!"};
 
 
     @Override
@@ -57,9 +58,9 @@ public class RegistroScreen extends AppCompatActivity {
                 String senha = senhabox.getText().toString();
 
                 if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
-                    Snackbar mysnack = Snackbar.make(view, mensagens[0], Snackbar.LENGTH_SHORT);
-                    mysnack.getView().setBackgroundColor(Color.parseColor("#ffa500"));
-                    mysnack.setTextColor(Color.parseColor("#ffffff"));
+                    Snackbar mysnack = Snackbar.make(view, "Preencha todos os campos Solicitados!", Snackbar.LENGTH_SHORT);
+                    mysnack.getView().setBackgroundColor(Color.parseColor("#ffffff"));
+                    mysnack.setTextColor(Color.parseColor("#000000"));
                     mysnack.show();
                 } else {
                     cadastrarUsuario(view);
@@ -79,37 +80,37 @@ public class RegistroScreen extends AppCompatActivity {
         auth.createUserWithEmailAndPassword(email,senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
 
                     SalvadorDados();
-
-                    Snackbar mysnack = Snackbar.make(view, "Conta Criada com Sucesso!", Snackbar.LENGTH_SHORT);
-                    mysnack.getView().setBackgroundColor(Color.parseColor("#ffffff"));
-                    mysnack.setTextColor(Color.parseColor("#000000"));
-                    mysnack.show();
+                    Snackbar mysnack1 = Snackbar.make(view, "Conta Criada com Sucesso!", Snackbar.LENGTH_SHORT);
+                    mysnack1.getView().setBackgroundColor(Color.parseColor("#00ff37"));
+                    mysnack1.setTextColor(Color.parseColor("#ffffff"));
+                    mysnack1.show();
 
                     namebox.setText("");
                     emaibox.setText("");
                     senhabox.setText("");
-                }else
 
-                try {
-                    throw task.getException();
+                } else {
+
+                    try {
+
+                        throw task.getException();
+                    } catch (FirebaseAuthWeakPasswordException e) {
+                        erro = "Digite uma senha com no mínimo 6 caracteres!";
+                    } catch (FirebaseAuthUserCollisionException e) {
+                        erro = "Email já utilizado, Utilize outro Email!";
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
+                        erro = "Email Inválido!";
+                    } catch (Exception e) {
+                        erro = "Erro ao cadastrar Usuário!";
+                    }
+                    Snackbar snackbar = Snackbar.make(view, erro, Snackbar.LENGTH_SHORT);
+                    snackbar.getView().setBackgroundColor(Color.parseColor("#ffffff"));
+                    snackbar.setTextColor(Color.parseColor("#000000"));
+                    snackbar.show();
                 }
-                catch (FirebaseAuthWeakPasswordException e){
-                     erro = "Digite uma senha com no mínimo 6 caracteres!";
-                }catch (FirebaseAuthUserCollisionException e){
-                     erro = "Email já utilizado, Utilize outro Email.";
-                } catch (FirebaseAuthInvalidCredentialsException e){
-                    erro = "Email Inválido!";
-                }
-                catch (Exception e){
-                    erro = "Erro ao cadastrar Usuário!";
-                }
-                Snackbar mysnack = Snackbar.make(view, erro, Snackbar.LENGTH_SHORT);
-                mysnack.getView().setBackgroundColor(Color.parseColor("#ffa500"));
-                mysnack.setTextColor(Color.parseColor("#ffffff"));
-                mysnack.show();
             }
         });
     }
