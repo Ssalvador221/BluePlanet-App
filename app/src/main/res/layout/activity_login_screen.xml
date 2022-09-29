@@ -54,6 +54,7 @@
 
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/box_email"
                 style="@style/edit_text"
                 android:drawableStart="@drawable/ic_person"
                 android:hint="@string/email"
@@ -61,6 +62,7 @@
 
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/senhabox"
                 style="@style/edit_text"
                 android:drawableStart="@drawable/ic_lock"
                 android:hint="@string/senha"
@@ -68,6 +70,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/entrar"
@@ -76,6 +79,7 @@
                 android:background="@drawable/shape_button"/>
 
             <TextView
+                android:id="@+id/redefenirpss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/esqueceu"
