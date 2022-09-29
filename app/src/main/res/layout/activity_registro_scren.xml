@@ -94,13 +94,24 @@
         android:textColorHint="#575656"
         tools:ignore="TouchTargetSizeCheck" />
 
+
+    <Switch
+        android:id="@+id/sProfessor"
+        android:layout_width="224dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px"
+        android:text="Voce é professor?"
+        android:thumb="@drawable/thumb"
+        android:layout_gravity="center"
+        app:track="@drawable/track" />
+
     <Button
         android:id="@+id/bt_registrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registrar"
         android:layout_gravity="center"
-        android:layout_marginTop="80px"
+        android:layout_marginTop="50px"
         android:layout_marginLeft="40dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
