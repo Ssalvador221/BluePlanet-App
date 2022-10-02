@@ -10,12 +10,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,6 +30,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.ktx.Firebase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,13 +38,13 @@ import java.util.Map;
 
 public class RegistroScreen extends AppCompatActivity {
 
-    private EditText namebox, emaibox, senhabox;
+    private EditText namebox, emaibox, senhabox, profebox;
     private Button btcadastrar;
-    private Switch sProfessor;
+    CheckBox sProfessor;
     String erro;
     String UsuarioId;
-    String ProfessorID;
     FirebaseAuth auth;
+    String ProfessorID;
 
 
     @Override
@@ -82,12 +82,14 @@ public class RegistroScreen extends AppCompatActivity {
         String senha = senhabox.getText().toString();
 
 
-        auth.createUserWithEmailAndPassword(email,senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
 
                     SalvadorDados();
+                    ProfeDados();
+
                     Snackbar mysnack1 = Snackbar.make(view, "Conta Criada com Sucesso!", Snackbar.LENGTH_SHORT);
                     mysnack1.getView().setBackgroundColor(Color.parseColor("#00ff37"));
                     mysnack1.setTextColor(Color.parseColor("#ffffff"));
@@ -97,37 +99,8 @@ public class RegistroScreen extends AppCompatActivity {
                     emaibox.setText("");
                     senhabox.setText("");
 
-                    startActivity(new Intent(RegistroScreen.this, PaginaInicial.class));
 
-
-                    if (task.isSuccessful()){
-                        ProfeDados();
-                        Snackbar snackbar = Snackbar.make(view, "Professor Registrado com Sucesso!", Snackbar.LENGTH_SHORT);
-                        snackbar.getView().setBackgroundColor(Color.parseColor("#00ff37"));
-                        snackbar.setTextColor(Color.parseColor("#ffffff"));
-                        snackbar.show();
-
-                        startActivity(new Intent(RegistroScreen.this, ProfessorActivity.class));
-                    }else{
-                        try {
-                            throw task.getException();
-                        } catch (FirebaseAuthWeakPasswordException e) {
-                            erro = "Digite uma senha com no mínimo 6 caracteres!";
-                        } catch (FirebaseAuthUserCollisionException e) {
-                            erro = "Email já utilizado, Utilize outro Email!";
-                        } catch (FirebaseAuthInvalidCredentialsException e) {
-                            erro = "Email Inválido!";
-                        } catch (Exception e) {
-                            erro = "Erro ao cadastrar Usuário!";
-                        }
-
-                        Snackbar snackbar = Snackbar.make(view, erro, Snackbar.LENGTH_SHORT);
-                        snackbar.getView().setBackgroundColor(Color.parseColor("#ffffff"));
-                        snackbar.setTextColor(Color.parseColor("#000000"));
-                        snackbar.show();
-                    }
                 } else {
-
                     try {
                         throw task.getException();
                     } catch (FirebaseAuthWeakPasswordException e) {
@@ -149,37 +122,37 @@ public class RegistroScreen extends AppCompatActivity {
         });
     }
 
-    private void SalvadorDados() {
 
-        String nome = findViewById(R.id.name_box).toString();
+        private void SalvadorDados () {
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+            String nome = namebox.getText().toString();
 
-        Map<String, Object> usuario = new HashMap<>();
-        usuario.put("Nome:", nome);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        UsuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            Map<String, Object> usuario = new HashMap<>();
+            usuario.put("Nome do Usuario:", nome);
 
-        DocumentReference documentReference = db.collection("Usuario").document(UsuarioId);
+            UsuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        documentReference.set(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Log.d("db", "Sucesso ao Registrar o Usuário!");
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("db", "onFailure: Error User criation!" + e.toString());
-            }
-        });
-    }
+            DocumentReference documentReference = db.collection("Usuario").document(UsuarioId);
+
+            documentReference.set(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Log.d("db", "Sucesso ao Registrar o Usuário!");
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d("db", "onFailure: Error User criation!" + e.toString());
+                }
+            });
+        }
 
 
     private void ProfeDados() {
 
-        String nome = findViewById(R.id.name_box).toString();
-
+        String nome = namebox.getText().toString();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String, Object> professor = new HashMap<>();
@@ -200,16 +173,17 @@ public class RegistroScreen extends AppCompatActivity {
                 Log.d("db", "onFailure: Error User criation!" + e.toString());
             }
         });
-
     }
 
-    private void IniciarComponentes() {
 
-        namebox = findViewById(R.id.name_box);
-        emaibox = findViewById(R.id.email_text);
-        senhabox = findViewById(R.id.senha_text);
-        btcadastrar = findViewById(R.id.bt_registrar);
-        sProfessor = findViewById(R.id.sProfessor);
 
+        private void IniciarComponentes () {
+
+            namebox = findViewById(R.id.name_box);
+            emaibox = findViewById(R.id.email_text);
+            senhabox = findViewById(R.id.senha_text);
+            btcadastrar = findViewById(R.id.bt_registrar);
+            //sProfessor = findViewById(R.id.sProfessor);
+
+        }
     }
-}

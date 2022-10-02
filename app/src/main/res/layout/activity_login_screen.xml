@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     android:background="@drawable/shape_background"
     tools:context=".LoginScreen">
 
@@ -23,9 +24,9 @@
 
 
             <androidx.cardview.widget.CardView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                app:cardCornerRadius="50dp"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                app:cardCornerRadius="150dp"
                 app:cardBackgroundColor="@android:color/transparent"
                 android:elevation="8dp">
 
@@ -34,10 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/logo"/>
-
-
-
+                    android:src="@drawable/logo" />
 
 
             </androidx.cardview.widget.CardView>
@@ -53,20 +51,60 @@
                 android:textStyle="bold"/>
 
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/box_email"
-                style="@style/edit_text"
-                android:drawableStart="@drawable/ic_person"
-                android:hint="@string/email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="60px"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_email"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="20px"
+                android:paddingStart="12dp"
+
+                android:paddingEnd="12dp"
+                android:textColor="@color/black"
+                android:textColorHint="#575656"
                 tools:ignore="TouchTargetSizeCheck" />
 
-
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/senhabox"
-                style="@style/edit_text"
-                android:drawableStart="@drawable/ic_lock"
-                android:hint="@string/senha"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="60px"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_lock"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="20px"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="@color/black"
+                android:textColorHint="#575656"
                 tools:ignore="TouchTargetSizeCheck" />
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"/>
+
+
+
+
+
 
 
             <androidx.appcompat.widget.AppCompatButton

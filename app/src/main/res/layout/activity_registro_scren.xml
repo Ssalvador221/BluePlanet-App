@@ -30,11 +30,12 @@
 
     <EditText
         android:id="@+id/name_box"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="200px"
+        android:layout_marginTop="100px"
         android:layout_marginEnd="40dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_person"
@@ -51,8 +52,12 @@
         tools:ignore="TouchTargetSizeCheck" />
 
 
+
+
+
     <EditText
         android:id="@+id/email_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -75,6 +80,7 @@
 
     <EditText
         android:id="@+id/senha_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -95,15 +101,19 @@
         tools:ignore="TouchTargetSizeCheck" />
 
 
-    <Switch
+
+
+    <CheckBox
         android:id="@+id/sProfessor"
-        android:layout_width="224dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30px"
-        android:text="Voce é professor?"
-        android:thumb="@drawable/thumb"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Voce é Professor?"
         android:layout_gravity="center"
-        app:track="@drawable/track" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSenha"
+        android:checked="false"/>/>
 
     <Button
         android:id="@+id/bt_registrar"
