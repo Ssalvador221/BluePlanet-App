@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -57,7 +58,7 @@ public class LoginScreen extends AppCompatActivity {
         });
     }
 
-    private void AutenticarUsuario(View view ) {
+    private void AutenticarUsuario(View view) {
 
         String email = box_email.getText().toString();
         String senha = senhabox.getText().toString();
@@ -72,7 +73,7 @@ public class LoginScreen extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            Home();
+                            onClick(view);
                         }
                     }, 5000);
                 } else {
@@ -81,7 +82,7 @@ public class LoginScreen extends AppCompatActivity {
                     try {
                         throw task.getException();
                     } catch (Exception e) {
-                        erro = "Erro ao logar usuário";
+                        erro = "Erro ao logar usu?rio";
                     }
 
                     Snackbar snackbar = Snackbar.make(view, mensagens[0], Snackbar.LENGTH_SHORT);
@@ -103,10 +104,11 @@ public class LoginScreen extends AppCompatActivity {
 //        }
 //    }
 
-    private void Home(){
-        Intent intent = new Intent(LoginScreen.this, PaginaInicial.class);
+    public void onClick(View view) {
+        Intent intent = new Intent(LoginScreen.this,PaginaInicial.class);
         startActivity(intent);
-        finish();
+
+        Toast.makeText(LoginScreen.this, "Bem-Vindo a Tela de Registro",Toast.LENGTH_LONG).show();
     }
 
     private void IniciarComponentes() {

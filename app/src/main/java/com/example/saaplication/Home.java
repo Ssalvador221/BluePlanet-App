@@ -50,6 +50,7 @@ public class Home extends AppCompatActivity {
         yourButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(Home.this, LoginScreen.class));
+                Toast.makeText(Home.this, "Bem-Vindo a Tela de Login",Toast.LENGTH_LONG).show();
             }
         });
 

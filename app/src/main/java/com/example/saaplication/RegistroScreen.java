@@ -40,7 +40,6 @@ public class RegistroScreen extends AppCompatActivity {
 
     private EditText namebox, emaibox, senhabox, profebox;
     private Button btcadastrar;
-    CheckBox sProfessor;
     String erro;
     String UsuarioId;
     FirebaseAuth auth;
@@ -88,7 +87,6 @@ public class RegistroScreen extends AppCompatActivity {
                 if (task.isSuccessful()) {
 
                     SalvadorDados();
-                    ProfeDados();
 
                     Snackbar mysnack1 = Snackbar.make(view, "Conta Criada com Sucesso!", Snackbar.LENGTH_SHORT);
                     mysnack1.getView().setBackgroundColor(Color.parseColor("#00ff37"));
@@ -148,33 +146,6 @@ public class RegistroScreen extends AppCompatActivity {
                 }
             });
         }
-
-
-    private void ProfeDados() {
-
-        String nome = namebox.getText().toString();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        Map<String, Object> professor = new HashMap<>();
-        professor.put("Nome do Professor:", nome);
-
-        ProfessorID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        DocumentReference documentReference = db.collection("Professor").document(ProfessorID);
-
-        documentReference.set(professor).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Log.d("db", "Sucesso ao Registrar o Professor!");
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("db", "onFailure: Error User criation!" + e.toString());
-            }
-        });
-    }
-
 
 
         private void IniciarComponentes () {

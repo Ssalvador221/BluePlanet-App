@@ -28,106 +28,111 @@
         android:textColor="@color/white"
         android:textSize="38dp"/>
 
-    <EditText
-        android:id="@+id/name_box"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="100px"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/custom_person"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Nome"
-        android:inputType="textPersonName"
-        android:padding="20px"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:textColor="#575656"
-        android:textColorHint="@color/black"
-        android:textSize="16sp"
-        tools:ignore="TouchTargetSizeCheck" />
-
-
-
-
-
-    <EditText
-        android:id="@+id/email_text"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="60px"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/custom_email"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:padding="20px"
-        android:paddingStart="12dp"
-
-        android:paddingEnd="12dp"
-        android:textColor="@color/black"
-        android:textColorHint="#575656"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <EditText
-        android:id="@+id/senha_text"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="60px"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/custom_lock"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="20px"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:textColor="@color/black"
-        android:textColorHint="#575656"
-        tools:ignore="TouchTargetSizeCheck" />
-
-
-
-
-    <CheckBox
-        android:id="@+id/sProfessor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="8dp"
-        android:text="Voce é Professor?"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120px"
+        android:layout_marginBottom="60px"
+        android:layout_marginLeft="80px"
+        android:layout_marginRight="80px"
         android:layout_gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenha"
-        android:checked="false"/>/>
+        app:cardCornerRadius="40px"
+        android:backgroundTint="#F0F0F1"
+        android:elevation="8dp">
 
-    <Button
-        android:id="@+id/bt_registrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="50px"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
-        android:backgroundTint="@color/white"
-        android:text="Registrar"
-        android:textColor="#114EEA"
-        android:textSize="18dp" />
+        <LinearLayout
+            android:layout_width="346dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
 
+
+            <EditText
+                android:id="@+id/name_box"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="217dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="0px"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_person"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Nome"
+                android:inputType="textPersonName"
+                android:padding="20px"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="#575656"
+                android:textColorHint="@color/black"
+                android:textSize="16sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <EditText
+                android:id="@+id/email_text"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="219dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="60px"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_email"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="20px"
+                android:paddingStart="12dp"
+
+                android:paddingEnd="12dp"
+                android:textColor="@color/black"
+                android:textColorHint="#575656"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <EditText
+                android:id="@+id/senha_text"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="222dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="60px"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_lock"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="20px"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="@color/black"
+                android:textColorHint="#575656"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/bt_registrar"
+                android:layout_width="225dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="50px"
+                android:layout_marginRight="40dp"
+                android:backgroundTint="@color/white"
+                android:text="Registrar"
+                android:textColor="#114EEA"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 </LinearLayout>
