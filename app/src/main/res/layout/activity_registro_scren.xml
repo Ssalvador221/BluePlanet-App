@@ -107,7 +107,7 @@
         android:id="@+id/sProfessor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="22dp"
         android:layout_marginEnd="8dp"
         android:text="Voce é Professor?"
         android:layout_gravity="center"
@@ -119,15 +119,14 @@
         android:id="@+id/bt_registrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar"
         android:layout_gravity="center"
         android:layout_marginTop="50px"
+        android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
         android:backgroundTint="@color/white"
+        android:text="Registrar"
         android:textColor="#114EEA"
-        android:textSize="18dp"/>
+        android:textSize="18dp" />
 
 
 

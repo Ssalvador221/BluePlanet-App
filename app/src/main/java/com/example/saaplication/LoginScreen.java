@@ -83,6 +83,7 @@ public class LoginScreen extends AppCompatActivity {
                     } catch (Exception e) {
                         erro = "Erro ao logar usuário";
                     }
+
                     Snackbar snackbar = Snackbar.make(view, mensagens[0], Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
@@ -92,18 +93,18 @@ public class LoginScreen extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (usuarioAtual != null) {
-            Home();
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
+//
+//        if (usuarioAtual != null) {
+//            Home();
+//        }
+//    }
 
     private void Home(){
-        Intent intent = new Intent(LoginScreen.this,PaginaInicial.class);
+        Intent intent = new Intent(LoginScreen.this, PaginaInicial.class);
         startActivity(intent);
         finish();
     }

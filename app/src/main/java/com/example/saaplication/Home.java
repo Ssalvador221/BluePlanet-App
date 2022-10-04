@@ -29,6 +29,7 @@ public class Home extends AppCompatActivity {
 
 
         Button login1 = findViewById(R.id.login1);
+
         //Animation Button Home Screen
         login1.setAlpha(0f);
 
@@ -62,14 +63,11 @@ public class Home extends AppCompatActivity {
                Intent intent = new Intent(Home.this,RegistroScreen.class);
                startActivity(intent);
 
-               Toast.makeText(Home.this, "Registre-se",Toast.LENGTH_LONG).show();
+               Toast.makeText(Home.this, "Bem-Vindo a Tela de Registro",Toast.LENGTH_LONG).show();
            }
        });
 
-
        regislink.setPaintFlags(regislink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
-
 
 
     }

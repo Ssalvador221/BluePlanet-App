@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="300px"
+        android:layout_marginTop="200px"
         android:textAlignment="center"
         android:text="BluePlanet"
         android:textColor="#FFFFFF"
@@ -47,7 +47,8 @@
         android:text="LOGIN"
         android:textColor="#3F51B5"
         android:textSize="20sp"
-        android:layout_marginTop="1700px"
+        android:layout_marginTop="700px"
+        android:layout_gravity="center"
         android:layout_marginLeft="120px"
         android:layout_marginRight="120px"
         android:textStyle="bold"/>
