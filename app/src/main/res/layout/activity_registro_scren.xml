@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="260dp"
-        android:layout_height="240dp"
+        android:layout_width="200dp"
+        android:layout_height="175dp"
         android:layout_gravity="center"
         android:layout_marginTop="100px"
         app:srcCompat="@drawable/logo" />
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="80px"
+        android:layout_marginTop="90px"
         android:fontFamily="@font/freshman"
         android:text="Bem vindo a tela de Registro"
         android:textAlignment="center"
@@ -32,99 +32,112 @@
         android:layout_width="match_parent"
         android:layout_height="456dp"
         android:layout_gravity="center"
-        android:layout_marginTop="300px"
+        android:layout_marginTop="100px"
         android:layout_marginBottom="300px"
         android:backgroundTint="#F0F0F1"
         android:elevation="8dp"
         app:cardCornerRadius="40px">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
-            android:layout_marginLeft="20px"
-            android:paddingStart="40px"
-            android:text="Insira os seus dados"
-            android:textColor="@color/black"
-            android:textSize="22dp" />
-
 
         <LinearLayout
             android:layout_width="359dp"
-            android:layout_height="296dp"
+            android:layout_height="359dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="12px"
+            android:layout_marginBottom="100px"
             android:gravity="center"
             android:orientation="vertical">
 
 
-            <EditText
-                android:id="@+id/name_box"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nametextedit"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="217dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="0px"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/custom_person"
-                android:drawablePadding="12dp"
-                android:ems="10"
+                android:layout_marginLeft="150px"
+                android:layout_marginBottom="10px"
+                android:layout_marginRight="150px"
                 android:hint="Nome"
-                android:inputType="textPersonName"
-                android:padding="20px"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:textColor="#575656"
                 android:textColorHint="@color/black"
-                android:textSize="16sp" />
+                app:boxStrokeColor="@color/orange"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                >
 
-            <EditText
-                android:id="@+id/email_text"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="20px"
+                    android:drawableStart="@drawable/custom_person1"
+                    android:textColor="#575656"
+                    android:paddingTop="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textColorHint="@color/black"
+                    android:textColorHighlight="@color/orange"
+                    android:layout_gravity="center"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailtextedit"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="219dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="60px"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/custom_email"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:padding="20px"
-                android:paddingStart="12dp"
+                android:layout_marginLeft="150px"
+                android:layout_marginTop="40px"
+                android:layout_marginRight="150px"
+                android:hint="E-mail"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/orange"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                >
 
-                android:paddingEnd="12dp"
-                android:textColor="@color/black"
-                android:textColorHint="#575656"
-                tools:ignore="TouchTargetSizeCheck" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="20px"
+                    android:drawableStart="@drawable/custom_email1"
+                    android:textColor="#575656"
+                    android:paddingTop="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_gravity="center"
+                    android:textColorHint="@color/black"
+                    android:textColorHighlight="@color/orange"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/senha_text"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/senhatextedit"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="222dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="60px"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/custom_lock"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:padding="20px"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:textColor="@color/black"
-                android:textColorHint="#575656"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_marginLeft="150px"
+                android:layout_marginTop="40px"
+                android:layout_marginRight="150px"
+                android:hint="Senha"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/orange"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                >
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="20px"
+                    android:drawableStart="@drawable/custom_lock1"
+                    android:textColor="#575656"
+                    android:paddingTop="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textColorHint="@color/black"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textColorHighlight="@color/orange"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:id="@+id/bt_registrar"
                 android:layout_width="225dp"
@@ -138,10 +151,6 @@
                 android:text="Registrar"
                 android:textColor="@color/orange"
                 android:textSize="18dp" />
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
-
 </LinearLayout>

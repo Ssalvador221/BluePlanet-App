@@ -41,7 +41,7 @@ import java.util.Map;
 
 public class RegistroScreen extends AppCompatActivity {
 
-    private EditText namebox, emaibox, senhabox, profebox;
+    private EditText namebox, emailbox, senhabox;
     private Button btcadastrar;
     String erro;
     String UsuarioId;
@@ -55,14 +55,13 @@ public class RegistroScreen extends AppCompatActivity {
         super.onCreate(savedIntanceState);
         setContentView(R.layout.activity_registro_scren);
 
-
         IniciarComponentes();
 
         btcadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String nome = namebox.getText().toString();
-                String email = emaibox.getText().toString();
+                String email = emailbox.getText().toString();
                 String senha = senhabox.getText().toString();
 
                 if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
@@ -77,17 +76,11 @@ public class RegistroScreen extends AppCompatActivity {
         });
     }
 
-
-
-
-
-
     private void cadastrarUsuario(View view) {
 
         auth = FirebaseAuth.getInstance();
 
-        String nome = namebox.getText().toString();
-        String email = emaibox.getText().toString();
+        String email = emailbox.getText().toString();
         String senha = senhabox.getText().toString();
 
 
@@ -103,9 +96,7 @@ public class RegistroScreen extends AppCompatActivity {
                     mysnack1.setTextColor(Color.parseColor("#ffffff"));
                     mysnack1.show();
 
-                    namebox.setText("");
-                    emaibox.setText("");
-                    senhabox.setText("");
+
 
 
                 } else {
@@ -160,11 +151,10 @@ public class RegistroScreen extends AppCompatActivity {
 
         private void IniciarComponentes () {
 
-            namebox = findViewById(R.id.name_box);
-            emaibox = findViewById(R.id.email_text);
-            senhabox = findViewById(R.id.senha_text);
+            namebox = findViewById(R.id.nametextedit);
+            emailbox = findViewById(R.id.emailtextedit);
+            senhabox = findViewById(R.id.senhatextedit);
             btcadastrar = findViewById(R.id.bt_registrar);
-            //sProfessor = findViewById(R.id.sProfessor);
 
         }
     }
