@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="260dp"
-        android:layout_height="240dp"
+        android:layout_width="265dp"
+        android:layout_height="185dp"
         android:layout_gravity="center"
-        android:layout_marginTop="100px"
+        android:layout_marginTop="50px"
         app:srcCompat="@drawable/logo" />
 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="80px"
+        android:layout_marginTop="50px"
         android:fontFamily="@font/freshman"
         android:text="Bem vindo a tela de Registro"
         android:textAlignment="center"
@@ -30,9 +30,9 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="456dp"
+        android:layout_height="482dp"
         android:layout_gravity="center"
-        android:layout_marginTop="300px"
+        android:layout_marginTop="0px"
         android:layout_marginBottom="300px"
         android:backgroundTint="#F0F0F1"
         android:elevation="8dp"
@@ -41,8 +41,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
-            android:layout_marginLeft="20px"
+            android:layout_marginTop="40px"
             android:paddingStart="40px"
             android:text="Insira os seus dados"
             android:textColor="@color/black"
@@ -50,10 +49,10 @@
 
 
         <LinearLayout
-            android:layout_width="359dp"
-            android:layout_height="296dp"
+            android:layout_width="350dp"
+            android:layout_height="282dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="12px"
+            android:layout_marginBottom="200px"
             android:gravity="center"
             android:orientation="vertical">
 

@@ -12,8 +12,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,13 +46,15 @@ public class RegistroScreen extends AppCompatActivity {
     String erro;
     String UsuarioId;
     FirebaseAuth auth;
-    String ProfessorID;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedIntanceState) {
         super.onCreate(savedIntanceState);
         setContentView(R.layout.activity_registro_scren);
+
 
         IniciarComponentes();
 
@@ -71,6 +76,11 @@ public class RegistroScreen extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+
 
     private void cadastrarUsuario(View view) {
 

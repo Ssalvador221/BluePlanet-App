@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shape_background"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".PaginaInicial">
 
-    <TextView
-        android:id="@+id/textView6"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_box1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="@font/freshman"
-        android:text="Login feito"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="38dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginLeft="100px"
+        android:layout_marginTop="200px"
+        android:layout_marginRight="150px"
+        android:hint="E-mail"
+        android:padding="20px"
+        app:boxStrokeColor="@color/orange"
+        android:textColorHint="@color/black"
+       >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawablePadding="20px"
+            android:drawableStart="@drawable/custom_email"
+            android:paddingStart="30px"
+            android:textColor="#575656"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+</LinearLayout>
+
+
+
