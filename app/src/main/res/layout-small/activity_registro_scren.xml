@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="175dp"
+        android:layout_width="196dp"
+        android:layout_height="158dp"
         android:layout_gravity="center"
         android:layout_marginTop="100px"
         app:srcCompat="@drawable/logo" />
@@ -25,14 +25,14 @@
         android:text="Bem vindo a tela de Registro"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="37dp" />
+        android:textSize="30dp" />
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="456dp"
+        android:layout_height="340dp"
         android:layout_gravity="center"
-        android:layout_marginTop="100px"
+        android:layout_marginTop="80px"
         android:layout_marginBottom="300px"
         android:backgroundTint="#F0F0F1"
         android:elevation="8dp"
@@ -43,7 +43,7 @@
             android:layout_width="359dp"
             android:layout_height="359dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="100px"
+            android:layout_marginBottom="30px"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -53,29 +53,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="150px"
-                android:layout_marginBottom="10px"
                 android:layout_marginRight="150px"
+                android:layout_marginBottom="10px"
                 android:hint="Nome"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/orange"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                >
+                app:layout_constraintRight_toRightOf="parent">
 
                 <EditText
                     android:id="@+id/nametextedit"
                     android:layout_width="match_parent"
-                    android:layout_height="140px"
-                    android:drawablePadding="20px"
-                    android:drawableStart="@drawable/custom_person1"
-                    android:textColor="#575656"
-                    android:paddingTop="20dp"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:textColorHint="@color/black"
-                    android:textColorHighlight="@color/orange"
+                    android:layout_height="120px"
                     android:layout_gravity="center"
-                    />
+                    android:drawableStart="@drawable/custom_person1"
+                    android:drawablePadding="20px"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:textColor="#575656"
+                    android:textColorHighlight="@color/orange"
+                    android:textColorHint="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -89,23 +87,21 @@
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/orange"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                >
+                app:layout_constraintRight_toRightOf="parent">
 
                 <EditText
                     android:id="@+id/emailtextedit"
                     android:layout_width="match_parent"
-                    android:layout_height="140px"
-                    android:drawablePadding="20px"
-                    android:drawableStart="@drawable/custom_email1"
-                    android:textColor="#575656"
-                    android:paddingTop="20dp"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
+                    android:layout_height="120px"
                     android:layout_gravity="center"
-                    android:textColorHint="@color/black"
+                    android:drawableStart="@drawable/custom_email1"
+                    android:drawablePadding="20px"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:textColor="#575656"
                     android:textColorHighlight="@color/orange"
-                    />
+                    android:textColorHint="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -124,7 +120,7 @@
                 <EditText
                     android:id="@+id/senhatextedit"
                     android:layout_width="match_parent"
-                    android:layout_height="140px"
+                    android:layout_height="120px"
                     android:drawableStart="@drawable/custom_lock1"
                     android:drawablePadding="20px"
                     android:inputType="textPassword"
@@ -139,11 +135,11 @@
 
             <Button
                 android:id="@+id/bt_registrar"
-                android:layout_width="254dp"
-                android:layout_height="61dp"
+                android:layout_width="260dp"
+                android:layout_height="140px"
                 android:layout_gravity="center"
                 android:layout_marginLeft="40dp"
-                android:layout_marginTop="80px"
+                android:layout_marginTop="50px"
                 android:layout_marginRight="40dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"

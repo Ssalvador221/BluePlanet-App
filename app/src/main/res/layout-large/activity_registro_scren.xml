@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="175dp"
+        android:layout_width="wrap_content"
+        android:layout_height="221dp"
         android:layout_gravity="center"
         android:layout_marginTop="100px"
         app:srcCompat="@drawable/logo" />
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="90px"
+        android:layout_marginTop="170px"
         android:fontFamily="@font/freshman"
         android:text="Bem vindo a tela de Registro"
         android:textAlignment="center"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="456dp"
         android:layout_gravity="center"
-        android:layout_marginTop="100px"
+        android:layout_marginTop="200px"
         android:layout_marginBottom="300px"
         android:backgroundTint="#F0F0F1"
         android:elevation="8dp"
@@ -65,7 +65,7 @@
                 <EditText
                     android:id="@+id/nametextedit"
                     android:layout_width="match_parent"
-                    android:layout_height="140px"
+                    android:layout_height="160px"
                     android:drawablePadding="20px"
                     android:drawableStart="@drawable/custom_person1"
                     android:textColor="#575656"
@@ -95,7 +95,7 @@
                 <EditText
                     android:id="@+id/emailtextedit"
                     android:layout_width="match_parent"
-                    android:layout_height="140px"
+                    android:layout_height="160px"
                     android:drawablePadding="20px"
                     android:drawableStart="@drawable/custom_email1"
                     android:textColor="#575656"
@@ -124,7 +124,7 @@
                 <EditText
                     android:id="@+id/senhatextedit"
                     android:layout_width="match_parent"
-                    android:layout_height="140px"
+                    android:layout_height="160px"
                     android:drawableStart="@drawable/custom_lock1"
                     android:drawablePadding="20px"
                     android:inputType="textPassword"
@@ -136,11 +136,10 @@
                     android:textColorHighlight="@color/orange"
                     android:textColorHint="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
-
             <Button
                 android:id="@+id/bt_registrar"
-                android:layout_width="254dp"
-                android:layout_height="61dp"
+                android:layout_width="259dp"
+                android:layout_height="140px"
                 android:layout_gravity="center"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="80px"
