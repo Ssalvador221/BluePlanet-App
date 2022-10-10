@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,6 +49,7 @@ public class RegistroScreen extends AppCompatActivity {
     String erro;
     String UsuarioId;
     FirebaseAuth auth;
+    ImageButton botaoVoltarPagina;
 
 
 
@@ -57,6 +60,17 @@ public class RegistroScreen extends AppCompatActivity {
         setContentView(R.layout.activity_registro_scren);
 
         IniciarComponentes();
+
+        botaoVoltarPagina = findViewById(R.id.botaoVoltarPagina);
+
+        botaoVoltarPagina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegistroScreen.this, Home.class));
+                Toast.makeText(RegistroScreen.this, "Bem-Vindo a Tela de Login",Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         btcadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
