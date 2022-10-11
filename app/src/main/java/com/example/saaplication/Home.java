@@ -1,6 +1,7 @@
 package com.example.saaplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
 
 import android.content.Intent;
 import android.graphics.Paint;
@@ -62,8 +63,8 @@ public class Home extends AppCompatActivity {
            @Override
            public void onClick(View view) {
                Intent intent = new Intent(Home.this,RegistroScreen.class);
+               ActivityOptionsCompat activityCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(), R.drawable.fade_in_animacao, R.drawable.fade_right_animacao);
                startActivity(intent);
-
                Toast.makeText(Home.this, "Bem-Vindo a Tela de Registro",Toast.LENGTH_LONG).show();
            }
        });

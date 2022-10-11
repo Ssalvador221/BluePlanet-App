@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="456dp"
         android:layout_gravity="center"
-        android:layout_marginTop="400px"
+        android:layout_marginTop="300px"
         android:layout_marginBottom="300px"
         android:backgroundTint="#F0F0F1"
         android:elevation="8dp"
@@ -73,7 +73,7 @@
                 <EditText
                     android:id="@+id/nametextedit"
                     android:layout_width="match_parent"
-                    android:layout_height="180px"
+                    android:layout_height="63dp"
                     android:layout_gravity="center"
                     android:drawableStart="@drawable/custom_person1"
                     android:drawablePadding="20px"
@@ -101,7 +101,7 @@
                 <EditText
                     android:id="@+id/emailtextedit"
                     android:layout_width="match_parent"
-                    android:layout_height="180px"
+                    android:layout_height="63dp"
                     android:layout_gravity="center"
                     android:drawableStart="@drawable/custom_email1"
                     android:drawablePadding="20px"
@@ -129,7 +129,7 @@
                 <EditText
                     android:id="@+id/senhatextedit"
                     android:layout_width="match_parent"
-                    android:layout_height="180px"
+                    android:layout_height="63dp"
                     android:drawableStart="@drawable/custom_lock1"
                     android:drawablePadding="20px"
                     android:inputType="textPassword"

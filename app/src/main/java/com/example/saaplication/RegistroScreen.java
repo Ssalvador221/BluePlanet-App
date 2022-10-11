@@ -19,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -97,6 +98,7 @@ public class RegistroScreen extends AppCompatActivity {
 
         String email = emailbox.getText().toString();
         String senha = senhabox.getText().toString();
+        String nome = namebox.getText().toString();
 
 
         auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -111,6 +113,9 @@ public class RegistroScreen extends AppCompatActivity {
                     mysnack1.setTextColor(Color.parseColor("#ffffff"));
                     mysnack1.show();
 
+                    namebox.setText("");
+                    emailbox.setText("");
+                    senhabox.setText("");
 
 
 
