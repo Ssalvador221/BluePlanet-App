@@ -3,4 +3,6 @@
     <string name="login">Iniciar Sessão</string>
     <string name="entrar">Entrar </string>
     <string name="esqueceu">Esqueceu a Senha? </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

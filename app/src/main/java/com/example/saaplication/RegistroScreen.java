@@ -53,8 +53,6 @@ public class RegistroScreen extends AppCompatActivity {
     ImageButton botaoVoltarPagina;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedIntanceState) {
         super.onCreate(savedIntanceState);
@@ -116,7 +114,6 @@ public class RegistroScreen extends AppCompatActivity {
                     namebox.setText("");
                     emailbox.setText("");
                     senhabox.setText("");
-
 
 
                 } else {

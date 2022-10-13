@@ -1,139 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="@drawable/shape_background"
+    android:layout_centerHorizontal="true"
+    android:layout_centerInParent="true"
+    android:layout_centerVertical="true"
     tools:context=".LoginScreen">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100px"
-        android:layout_marginBottom="100px"
-        android:layout_marginLeft="80px"
-        android:layout_marginRight="80px"
+        android:layout_centerVertical="true"
         android:layout_gravity="center"
-        app:cardCornerRadius="40px"
+        android:layout_marginLeft="80px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="80px"
         android:backgroundTint="#F0F0F1"
-        android:elevation="8dp">
+        android:elevation="8dp"
+        app:cardCornerRadius="40px">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
 
             <androidx.cardview.widget.CardView
-                android:layout_width="175dp"
-                android:layout_height="175dp"
-                app:cardCornerRadius="150dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="20px"
+                android:layout_marginBottom="70dp"
+                android:elevation="8dp"
                 app:cardBackgroundColor="@android:color/transparent"
-                android:elevation="8dp">
+                app:cardCornerRadius="150dp">
 
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
                     android:layout_gravity="center"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/logo" />
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="@string/login"
-                android:textColor="@color/orange"
-                android:textAlignment="center"
                 android:layout_gravity="center"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:layout_marginBottom="50dp"
+                android:text="@string/login"
+                android:textAlignment="center"
+                android:textColor="@color/orange"
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/box_email"
+            <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="10px"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/custom_email"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:padding="20px"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:textColor="@color/black"
-                android:textColorHint="#575656"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_marginLeft="150px"
+                android:layout_marginRight="150px"
+                android:layout_marginBottom="100px"
+                android:hint="E-mail"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/orange"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
 
-            <EditText
-                android:id="@+id/senhabox"
+                <EditText
+                    android:id="@+id/email_login_textedit"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:drawableStart="@drawable/custom_email1"
+                    android:drawablePadding="20px"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:textColor="#575656"
+                    android:textColorHighlight="@color/orange"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="60px"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/custom_lock"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:padding="20px"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:textColor="@color/black"
-                android:textColorHint="#575656"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_marginLeft="150px"
+                android:layout_marginTop="0px"
+                android:layout_marginRight="150px"
+                android:hint="Senha"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/orange"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <EditText
+                    android:id="@+id/senha_login_textedit"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:drawableStart="@drawable/custom_lock1"
+                    android:drawablePadding="20px"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:textColor="#575656"
+                    android:textColorHighlight="@color/orange"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50px"
-                android:scrollbarDefaultDelayBeforeFade="@integer/material_motion_duration_long_1"/>
+                android:visibility="invisible"/>
 
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btLogin"
+            <Button
+                android:id="@+id/button_login"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/entrar"
-                android:layout_marginStart="40dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="50px"
-                android:layout_marginEnd="40dp"
-                android:textColor="#114EEA"
-                android:background="@drawable/custom_input"/>
+                android:layout_marginRight="40dp"
+                android:backgroundTint="@color/white"
+                android:text="Login"
+                android:textColor="@color/orange"
+                android:textSize="17dp" />
 
             <TextView
-                android:id="@+id/redefenirpss"
+                android:id="@+id/forgotpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/esqueceu"
+                android:layout_marginTop="20px"
+                android:text="Esqueceu a senha?"
                 android:textAlignment="center"
-                android:layout_gravity="center"
-                android:layout_marginTop="40px"
-                android:textColor="#EC7F0B"
-                android:textSize="18sp"/>
-
+                android:textColor="@color/black" />
 
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
-</LinearLayout>
+</RelativeLayout>
