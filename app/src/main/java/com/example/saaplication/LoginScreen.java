@@ -7,15 +7,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,9 +18,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginScreen extends AppCompatActivity {
 
@@ -103,7 +95,7 @@ public class LoginScreen extends AppCompatActivity {
 
 
        private void TelaPrincipal(){
-        Intent intent = new Intent(LoginScreen.this, LoginScreen1.class);
+        Intent intent = new Intent(LoginScreen.this, PaginaInicial.class);
         startActivity(intent);
         finish();
        }

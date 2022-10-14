@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SaAplication"
         tools:targetApi="33" >
         <activity
-            android:name=".LoginScreen1"
+            android:name=".PaginaInicial"
             android:exported="false" />
         <activity
             android:name=".RegistroScreen"
@@ -25,7 +25,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Home"
+            android:name=".Login_register_screen"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

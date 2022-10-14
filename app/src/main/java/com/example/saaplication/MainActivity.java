@@ -22,7 +22,7 @@ import android.view.WindowManager;
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(MainActivity.this, Home.class);
+                Intent i = new Intent(MainActivity.this, Login_register_screen.class);
                 startActivity(i);
                 finish();
             }
