@@ -56,7 +56,5 @@ public class PaginaInicial extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frameLayoutId,fragment);
         fragmentTransaction.commit();
 
-
-
     }
 }
