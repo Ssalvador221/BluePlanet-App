@@ -15,13 +15,11 @@
     </group>
 
 
-
-    <group android:checkableBehavior="single">
-
         <item
             android:title="Profile">
 
             <menu>
+                <group android:checkableBehavior="single">
         <item
             android:id="@+id/perfilPage"
             android:icon="@drawable/ic_person"
@@ -30,39 +28,24 @@
             android:id="@+id/logoutAccount"
             android:icon="@drawable/logout_icon"
             android:title="Logout" />
-
+            </group>
         </menu>
         </item>
-    </group>
 
-    <group android:checkableBehavior="single">
 
-        <item android:title="Ajuda e Configuraçoes">
+
+    <item android:title="Ajuda e Configuraçoes">
             <menu>
-
+                <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/helpFeedbackPage"
                     android:icon="@drawable/help_center_icon"
                     android:title="Help and Feedback" />
-
                 <item
                     android:id="@+id/settingPage"
                     android:icon="@drawable/settings_icon"
                     android:title="Configuraçoes" />
-
-
-
+                </group>
             </menu>
-
-
-
-
         </item>
-
-
-
-    </group>
-
-
-
 </menu>

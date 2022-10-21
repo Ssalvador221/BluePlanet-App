@@ -18,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginScreen extends AppCompatActivity {
 
@@ -64,7 +65,6 @@ public class LoginScreen extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
                         progressBar.setVisibility(View.VISIBLE);
-
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
@@ -92,9 +92,16 @@ public class LoginScreen extends AppCompatActivity {
 
         }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser usuarioLogado = FirebaseAuth.getInstance().getCurrentUser();
+        if (usuarioLogado != null){
+            TelaPrincipal();
+        }
+    }
 
-
-       private void TelaPrincipal(){
+    private void TelaPrincipal(){
         Intent intent = new Intent(LoginScreen.this, PaginaInicial.class);
         startActivity(intent);
         finish();

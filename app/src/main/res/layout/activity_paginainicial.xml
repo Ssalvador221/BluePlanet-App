@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".PaginaInicial"
-    android:fitsSystemWindows="true"
-    >
+    android:fitsSystemWindows="true">
 
 
     <com.google.android.material.navigation.NavigationView
@@ -21,21 +20,21 @@
         />
 
 
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <FrameLayout
             android:id="@+id/frameLayoutId"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toTopOf="@+id/bottomNavegationView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -49,31 +48,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/colorPrimary"
+                android:backgroundTint="@color/orange"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
-                android:backgroundTint="@color/orange"
-                app:navigationIcon="@drawable/menu_icon"
-                />
-
-
+                app:navigationIcon="@drawable/menu_icon" />
         </FrameLayout>
 
 
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavegationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/orange"
-        app:labelVisibilityMode="auto"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_viewnavegationbtt"
-        app:itemRippleColor="@color/white"
-        app:itemIconTint="@color/coloritens"
-        app:itemTextColor="@color/white"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:id="@+id/bottomNavegationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/orange"
+            app:itemIconTint="@color/coloritens"
+            app:itemRippleColor="@color/white"
+            app:itemTextColor="@color/white"
+            app:labelVisibilityMode="auto"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/menu_viewnavegationbtt" />
+    </RelativeLayout>
     </ScrollView>
-
 </androidx.drawerlayout.widget.DrawerLayout>
