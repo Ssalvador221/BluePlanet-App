@@ -21,13 +21,13 @@
             <menu>
                 <group android:checkableBehavior="single">
         <item
-            android:id="@+id/perfilPage"
+            android:id="@+id/perfilPage1"
             android:icon="@drawable/ic_person"
             android:title="Perfil"/>
         <item
             android:id="@+id/logoutAccount"
             android:icon="@drawable/logout_icon"
-            android:title="Logout" />
+            android:title="Logout"/>
             </group>
         </menu>
         </item>

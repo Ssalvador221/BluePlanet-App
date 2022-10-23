@@ -8,13 +8,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.PopupWindow;
 
 import com.example.saaplication.databinding.ActivityPaginainicialBinding;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class PaginaInicial extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -41,6 +47,7 @@ public class PaginaInicial extends AppCompatActivity implements NavigationView.O
 
         /*-------------------Toolbar-----------------*/
         setSupportActionBar(toolbar);
+
         //
 
         /*-------------------Navigation Drawer Menu-----------------*/
@@ -55,20 +62,28 @@ public class PaginaInicial extends AppCompatActivity implements NavigationView.O
 
 
 
+
+
         /*-------------------Fragments Config-----------------*/
         binding.bottomNavegationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.homePage:
+                    setTitle("Bem-Vindo a Página Inicial");
                     ReplaceFragment(new Home_page_Fragment());
+                    navigationMenuView.setCheckedItem(R.id.homeMenuPage);
                     break;
                 case R.id.searchPage:
-                    ReplaceFragment(new SearchFragment());
+                    setTitle("Busque por seus Amigos!");
+                    ReplaceFragment(new SearchFragement());
                     break;
                 case R.id.photoPage:
-                    ReplaceFragment(new Add_Foto_Fragment());
+                    setTitle("publicar Postagem");
+                    ReplaceFragment(new AddPost_Fragment());
                     break;
                 case R.id.perfilPage:
+                    setTitle("Perfil");
                     ReplaceFragment(new Perfil_Fragment());
+                    navigationMenuView.setCheckedItem(R.id.perfilPage1);
                     break;
             }
             return true;
@@ -94,6 +109,32 @@ public class PaginaInicial extends AppCompatActivity implements NavigationView.O
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.homeMenuPage:
+                ReplaceFragment(new Home_page_Fragment());
+                binding.bottomNavegationView.setSelectedItemId(R.id.homePage);
+                break;
+            case R.id.newsNotificationPage:
+                Intent intent = new Intent(PaginaInicial.this, NewsPage.class);
+                startActivity(intent);
+                break;
+            case R.id.perfilPage1:
+                ReplaceFragment(new Perfil_Fragment());
+                binding.bottomNavegationView.setSelectedItemId(R.id.perfilPage);
+                break;
+            case R.id.searchPage:
+                ReplaceFragment(new SearchFragement());
+                break;
+            case R.id.logoutAccount:
+                FirebaseAuth.getInstance().signOut();
+                Intent signOut = new Intent(PaginaInicial.this, LoginScreen.class);
+                startActivity(signOut);
+                finish();
+
+
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

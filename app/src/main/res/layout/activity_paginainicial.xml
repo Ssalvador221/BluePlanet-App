@@ -47,11 +47,10 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:backgroundTint="@color/orange"
+                android:background="@color/orange"
                 android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:navigationIcon="@drawable/menu_icon" />
+                app:navigationIcon="@drawable/menu_icon"
+                app:popupTheme="@style/AppTheme" />
         </FrameLayout>
 
 

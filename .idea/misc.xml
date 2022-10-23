@@ -22,6 +22,7 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/drawable/fade_in_animacao.xml" value="0.327" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/drawable/house_icon.xml" value="0.3675" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/drawable/ic_add_photo.xml" value="0.3675" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/drawable/menu_icon.xml" value="0.12" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/drawable/person_pin_icon.xml" value="0.3675" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/drawable/search_ic.xml" value="0.3675" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout-land/activity_registro_scren.xml" value="0.5" />
@@ -33,18 +34,25 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/activity_loginscreen1.xml" value="0.16" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/activity_main.xml" value="0.32592592592592595" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/activity_main2.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/activity_news_page.xml" value="0.1" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/activity_paginainicial.xml" value="0.22" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/activity_registro_scren.xml" value="0.22" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/activity_registro_scren.xml" value="0.2" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/activity_testando.xml" value="0.34375" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_add__foto_.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_add_post_.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_help_and__feedback.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_home_page.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_home_page_.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_news_page.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_pagina__inicial_.xml" value="0.23157894736842105" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_perfil_.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_perfil_.xml" value="0.22" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_search.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_search_fragement.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_settings_page.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/layout/fragment_t_est.xml" value="0.32592592592592595" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/menu/menu_topbar.xml" value="0.24537037037037038" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/menu/menu_viewnavegationbtt.xml" value="0.25" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.194" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaAppZips/SaPortfolio1/app/src/main/res/layout/activity_registro_scren.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaPortfolio/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/SaPortfolio/app/src/main/res/layout/activity_login_screen.xml" value="0.33" />
