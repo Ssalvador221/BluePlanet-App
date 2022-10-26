@@ -7,11 +7,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,12 +35,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
 
 
 public class RegistroScreen extends AppCompatActivity {
 
     private EditText namebox, emailbox, senhabox;
     private Button btcadastrar;
+    private ProgressBar progressBar;
     String erro;
     String UsuarioId;
     FirebaseAuth auth;
@@ -58,7 +62,7 @@ public class RegistroScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RegistroScreen.this, Login_register_screen.class));
-                Toast.makeText(RegistroScreen.this, "Bem-Vindo a Tela de Login",Toast.LENGTH_LONG).show();
+                Toast.makeText(RegistroScreen.this, "Bem-Vindo a tela Inicial",Toast.LENGTH_LONG).show();
             }
         });
 
@@ -107,6 +111,15 @@ public class RegistroScreen extends AppCompatActivity {
                     emailbox.setText("");
                     senhabox.setText("");
 
+                    if (task.isSuccessful()) {
+                        progressBar.setVisibility(View.VISIBLE);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                TelaPrincipalApp();
+                            }
+                        }, 3000);
+                    }
 
                 } else {
                     try {
@@ -158,8 +171,18 @@ public class RegistroScreen extends AppCompatActivity {
         }
 
 
+
+        private void TelaPrincipalApp(){
+
+            Intent intent = new Intent(RegistroScreen.this, LoginScreen.class);
+            Toast.makeText(RegistroScreen.this, "Bem-Vindo a página Principal",Toast.LENGTH_LONG).show();
+            startActivity(intent);
+        }
+
+
         private void IniciarComponentes () {
 
+            progressBar = findViewById(R.id.progressBar1);
             namebox = findViewById(R.id.nametextedit);
             emailbox = findViewById(R.id.emailtextedit);
             senhabox = findViewById(R.id.senhatextedit);
@@ -167,3 +190,4 @@ public class RegistroScreen extends AppCompatActivity {
 
         }
     }
+

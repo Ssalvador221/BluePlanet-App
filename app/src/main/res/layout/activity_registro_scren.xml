@@ -48,7 +48,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="456dp"
+            android:layout_height="458dp"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
             android:layout_marginBottom="00px"
@@ -58,7 +58,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="463dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30px"
                 android:gravity="center"
@@ -70,10 +70,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="150px"
+                    android:layout_marginTop="50px"
                     android:layout_marginRight="150px"
                     android:layout_marginBottom="100px"
                     android:hint="Nome"
-                    android:layout_marginTop="50px"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/orange"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -150,6 +150,15 @@
                         android:textColorHighlight="@color/orange"
                         android:textColorHint="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar1"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="40px"
+                    android:visibility="gone" />
+
 
                 <Button
                     android:id="@+id/bt_registrar"
