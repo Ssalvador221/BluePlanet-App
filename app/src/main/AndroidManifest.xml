@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SaAplication"
         tools:targetApi="33">
         <activity
-            android:name=".NewsPage"
+            android:name=".ProfileScrenPage"
             android:exported="false" />
         <activity
             android:name=".PaginaInicial"

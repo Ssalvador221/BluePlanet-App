@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import com.example.saaplication.databinding.ActivityPaginainicialBinding;
@@ -30,7 +31,7 @@ public class PaginaInicial extends AppCompatActivity {
         setContentView(binding.getRoot());
         ReplaceFragment(new Home_page_Fragment());
 
-        getWindow().setStatusBarColor(Color.WHITE);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
 
 
 
@@ -52,7 +53,8 @@ public class PaginaInicial extends AppCompatActivity {
                     break;
                 case R.id.perfilPage:
                     setTitle("Perfil");
-                    ReplaceFragment(new Perfil_Fragment());
+                    Intent intent = new Intent(this, ProfileScrenPage.class);
+                    startActivity(intent);
                     break;
             }
             return true;
