@@ -90,7 +90,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        android:text="0"
                         android:textSize="27dp"
                         android:textColor="@color/black"/>
                 </LinearLayout>
@@ -109,7 +109,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1,550"
+                        android:text="0"
                         android:textSize="27dp"
                         android:textColor="@color/black"/>
                 </LinearLayout>
@@ -128,110 +128,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="369"
+                        android:text="0"
                         android:textSize="27dp"
                         android:textColor="@color/black"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Feed"
-                android:textColor="@color/black"
-                android:textSize="27dp"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"/>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:cardCornerRadius="12dp"
-                android:layout_weight="1"
-                android:backgroundTint="#D6BDBD">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="João Salvador"
-                    android:textSize="22dp"
-                    android:background="@color/orange"
-                    android:padding="12px"
-                    android:textColor="@color/white"
-                    android:paddingStart="12dp"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="209dp"
-                    android:layout_marginTop="34dp"
-                    android:src="@drawable/background_image" />
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:cardCornerRadius="12dp"
-                android:layout_marginTop="20dp"
-                android:layout_weight="1"
-                android:backgroundTint="#D6BDBD">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="João Salvador"
-                    android:textSize="22dp"
-                    android:background="@color/orange"
-                    android:padding="12px"
-                    android:textColor="@color/white"
-                    android:paddingStart="12dp"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="209dp"
-                    android:layout_marginTop="34dp"
-                    android:src="@drawable/background_image" />
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:cardCornerRadius="12dp"
-                android:layout_weight="1"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#D6BDBD">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="João Salvador"
-                    android:textSize="22dp"
-                    android:background="@color/orange"
-                    android:padding="12px"
-                    android:textColor="@color/white"
-                    android:paddingStart="12dp"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="209dp"
-                    android:layout_marginTop="34dp"
-                    android:src="@drawable/background_image" />
-            </androidx.cardview.widget.CardView>
-
-
-
-
-
-        </LinearLayout>
-    </ScrollView>
-
-
 </LinearLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,168 +9,179 @@
     tools:context=".RegistroScreen">
 
 
-    <ImageButton
-        android:id="@+id/botaoVoltarPagina"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#3F51B5"
-        android:paddingTop="50px"
-        android:paddingRight="350dp"
-        android:src="@drawable/backpage" />
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
+
+
+        <ImageButton
+            android:id="@+id/botaoVoltarPagina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3F51B5"
+            android:paddingTop="90px"
+            android:paddingRight="350dp"
+            android:src="@drawable/backpage"
+            android:layout_alignParentTop="true"/>
 
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="197dp"
-            android:layout_height="165dp"
+            android:layout_width="230dp"
+            android:layout_height="174dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             app:srcCompat="@drawable/logo" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="90px"
+            android:layout_marginTop="260dp"
             android:fontFamily="@font/freshman"
             android:text="Bem vindo a tela de Registro"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="37dp" />
 
-
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="458dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="00px"
-            android:backgroundTint="#F0F0F1"
-            android:elevation="8dp"
-            app:cardCornerRadius="40px">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="463dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="30px"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_height="480dp"
+                android:layout_marginTop="390dp">
 
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="150px"
-                    android:layout_marginTop="50px"
-                    android:layout_marginRight="150px"
-                    android:layout_marginBottom="100px"
-                    android:hint="Nome"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/orange"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent">
+                    android:layout_height="500dp"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/nametextedit"
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="63dp"
-                        android:layout_gravity="center"
-                        android:drawableStart="@drawable/custom_person1"
-                        android:drawablePadding="20px"
-                        android:paddingStart="20dp"
-                        android:paddingTop="20dp"
-                        android:paddingEnd="20dp"
-                        android:textColor="#575656"
-                        android:textColorHighlight="@color/orange"
-                        android:textColorHint="@color/black" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="150px"
-                    android:layout_marginRight="150px"
-                    android:layout_marginBottom="70px"
-                    android:hint="E-mail"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/orange"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent">
-
-                    <EditText
-                        android:id="@+id/emailtextedit"
-                        android:layout_width="match_parent"
-                        android:layout_height="63dp"
-                        android:layout_gravity="center"
-                        android:drawableStart="@drawable/custom_email1"
-                        android:drawablePadding="20px"
-                        android:paddingStart="20dp"
-                        android:paddingTop="20dp"
-                        android:paddingEnd="20dp"
-                        android:textColor="#575656"
-                        android:textColorHighlight="@color/orange"
-                        android:textColorHint="@color/black" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="150px"
-                    android:layout_marginTop="20px"
-                    android:layout_marginRight="150px"
-                    android:hint="Senha"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/orange"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent">
-
-                    <EditText
-                        android:id="@+id/senhatextedit"
-                        android:layout_width="match_parent"
-                        android:layout_height="63dp"
-                        android:drawableStart="@drawable/custom_lock1"
-                        android:drawablePadding="20px"
-                        android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:paddingStart="20dp"
-                        android:paddingTop="20dp"
-                        android:paddingEnd="20dp"
-                        android:textColor="#575656"
-                        android:textColorHighlight="@color/orange"
-                        android:textColorHint="@color/black" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <ProgressBar
-                    android:id="@+id/progressBar1"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="40px"
-                    android:visibility="gone" />
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/white">
 
 
-                <Button
-                    android:id="@+id/bt_registrar"
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="300px"
-                    android:backgroundTint="@color/white"
-                    android:text="Registrar"
-                    android:textColor="@color/orange"
-                    android:textSize="18dp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-</RelativeLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="150px"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginRight="150px"
+                            android:hint="Nome"
+                            android:textColorHint="@color/black"
+                            android:weightSum="3"
+                            app:boxStrokeColor="@color/orange"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent">
+
+                            <EditText
+                                android:id="@+id/nametextedit"
+                                android:layout_width="match_parent"
+                                android:layout_height="63dp"
+                                android:layout_gravity="center"
+                                android:drawableStart="@drawable/custom_person1"
+                                android:drawablePadding="20px"
+                                android:paddingStart="20dp"
+                                android:paddingTop="20dp"
+                                android:paddingEnd="20dp"
+                                android:textColor="#575656"
+                                android:textColorHighlight="@color/orange"
+                                android:textColorHint="@color/black" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="150px"
+                            android:layout_marginTop="150dp"
+                            android:layout_marginRight="150px"
+                            android:hint="E-mail"
+                            android:textColorHint="@color/black"
+                            android:weightSum="1"
+                            app:boxStrokeColor="@color/orange"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent">
+
+                            <EditText
+                                android:id="@+id/emailtextedit"
+                                android:layout_width="match_parent"
+                                android:layout_height="63dp"
+                                android:layout_gravity="center"
+                                android:drawableStart="@drawable/custom_email1"
+                                android:drawablePadding="20px"
+                                android:paddingStart="20dp"
+                                android:paddingTop="20dp"
+                                android:paddingEnd="20dp"
+                                android:textColor="#575656"
+                                android:textColorHighlight="@color/orange"
+                                android:textColorHint="@color/black" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="150px"
+                            android:layout_marginTop="250dp"
+                            android:layout_marginRight="150px"
+                            android:hint="Senha"
+                            android:textColorHint="@color/black"
+                            app:boxStrokeColor="@color/orange"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent">
+
+                            <EditText
+                                android:id="@+id/senhatextedit"
+                                android:layout_width="match_parent"
+                                android:layout_height="63dp"
+                                android:drawableStart="@drawable/custom_lock1"
+                                android:drawablePadding="20px"
+                                android:inputType="textPassword"
+                                android:maxLines="1"
+                                android:paddingStart="20dp"
+                                android:paddingTop="20dp"
+                                android:paddingEnd="20dp"
+                                android:textColor="#575656"
+                                android:textColorHighlight="@color/orange"
+                                android:textColorHint="@color/black" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ProgressBar
+                            android:id="@+id/progressBar1"
+                            style="?android:attr/progressBarStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="90dp"
+                            android:visibility="gone" />
+
+
+                        <Button
+                            android:id="@+id/bt_registrar"
+                            android:layout_width="match_parent"
+                            android:layout_height="78dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="160dp"
+                            android:layout_marginRight="40dp"
+                            android:backgroundTint="#3F51B5"
+                            android:text="Registrar"
+                            android:textColor="@color/white"
+                            android:textSize="18dp" />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

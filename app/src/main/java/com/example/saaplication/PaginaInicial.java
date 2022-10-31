@@ -3,13 +3,20 @@ package com.example.saaplication;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.WindowAnimationFrameStats;
+import android.view.WindowInsetsAnimation;
+import android.view.WindowManager;
+
 import com.example.saaplication.databinding.ActivityPaginainicialBinding;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +37,8 @@ public class PaginaInicial extends AppCompatActivity {
         binding = ActivityPaginainicialBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         ReplaceFragment(new Home_page_Fragment());
+
+
 
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 

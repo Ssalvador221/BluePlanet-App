@@ -3,6 +3,7 @@ package com.example.saaplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,10 @@ public class Login_register_screen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_registro_screen);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
+
+
+
 
 //Animation Button Login_register_screen Screen
         Button login1 = findViewById(R.id.loginScreenButton);
