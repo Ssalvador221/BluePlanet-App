@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registroScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#3F51B5"
@@ -15,33 +16,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <ImageButton
-            android:id="@+id/botaoVoltarPagina"
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#3F51B5"
-            android:paddingTop="90px"
-            android:paddingRight="350dp"
-            android:src="@drawable/backpage"
-            android:layout_alignParentTop="true"/>
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:elevation="1dp"
+            app:title=" ">
+
+            <ImageButton
+                android:id="@+id/backToMainActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="12dp"
+                android:background="#3F51B5"
+                android:src="@drawable/backpage" />
+        </com.google.android.material.appbar.MaterialToolbar>
 
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="230dp"
-            android:layout_height="174dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentLeft="true"
-            app:srcCompat="@drawable/logo" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="230dp"
+                android:layout_height="174dp"
+                android:layout_marginTop="60dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/logo" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="250dp"
             android:fontFamily="@font/freshman"
             android:text="Bem vindo a tela de Registro"
             android:textAlignment="center"
@@ -51,22 +64,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_centerInParent="true"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="480dp"
-                android:layout_marginTop="390dp">
+                android:layout_height="500dp"
+                android:layout_marginTop="367dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
+                    android:layout_height="match_parent"
                     android:layout_alignParentBottom="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:weightSum="1">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
                         android:backgroundTint="@color/white">
 
 
@@ -75,7 +91,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="150px"
-                            android:layout_marginTop="40dp"
+                            android:layout_marginTop="20dp"
                             android:layout_marginRight="150px"
                             android:hint="Nome"
                             android:textColorHint="@color/black"
@@ -104,7 +120,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="150px"
-                            android:layout_marginTop="150dp"
+                            android:layout_marginTop="110dp"
                             android:layout_marginRight="150px"
                             android:hint="E-mail"
                             android:textColorHint="@color/black"
@@ -133,7 +149,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="150px"
-                            android:layout_marginTop="250dp"
+                            android:layout_marginTop="200dp"
                             android:layout_marginRight="150px"
                             android:hint="Senha"
                             android:textColorHint="@color/black"
@@ -163,9 +179,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="90dp"
+                            android:layout_marginTop="60dp"
                             android:visibility="gone" />
-
 
                         <Button
                             android:id="@+id/bt_registrar"
@@ -173,7 +188,7 @@
                             android:layout_height="78dp"
                             android:layout_gravity="center"
                             android:layout_marginLeft="40dp"
-                            android:layout_marginTop="160dp"
+                            android:layout_marginTop="130dp"
                             android:layout_marginRight="40dp"
                             android:backgroundTint="#3F51B5"
                             android:text="Registrar"
@@ -184,4 +199,4 @@
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

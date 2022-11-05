@@ -13,12 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,32 +46,29 @@ public class RegistroScreen extends AppCompatActivity {
 
     private EditText namebox, emailbox, senhabox;
     private Button btcadastrar;
+    ImageView botaoVoltarPagina;
     private ProgressBar progressBar;
+
     String erro;
     String UsuarioId;
     FirebaseAuth auth;
-    ImageButton botaoVoltarPagina;
 
 
     @Override
     protected void onCreate(Bundle savedIntanceState) {
         super.onCreate(savedIntanceState);
         setContentView(R.layout.activity_registro_scren);
+
         getWindow().setStatusBarColor(Color.TRANSPARENT);
+
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        decorView.setSystemUiVisibility(uiOptions);
+
+
         IniciarComponentes();
-
-        botaoVoltarPagina = findViewById(R.id.botaoVoltarPagina);
-
-        botaoVoltarPagina.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegistroScreen.this, Login_register_screen.class));
-                Toast.makeText(RegistroScreen.this, "Bem-Vindo a tela Inicial",Toast.LENGTH_LONG).show();
-            }
-        });
-
 
         btcadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +87,18 @@ public class RegistroScreen extends AppCompatActivity {
                 }
             }
         });
+
+
+
+
+        botaoVoltarPagina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegistroScreen.this, Login_register_screen.class));
+            }
+        });
+
+
     }
 
     private void cadastrarUsuario(View view) {
@@ -190,6 +202,7 @@ public class RegistroScreen extends AppCompatActivity {
             emailbox = findViewById(R.id.emailtextedit);
             senhabox = findViewById(R.id.senhatextedit);
             btcadastrar = findViewById(R.id.bt_registrar);
+            botaoVoltarPagina = findViewById(R.id.backToMainActivity);
 
         }
     }

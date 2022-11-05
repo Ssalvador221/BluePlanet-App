@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_and_registro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#3F51B5"
@@ -9,64 +10,66 @@
     tools:context=".Login_register_screen">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="200px"
-            android:text="BluePlanet"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="60sp"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/portfolioTextView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="0px"
-            android:layout_marginTop="20px"
-            android:text="Portfólio"
-            android:textAlignment="center"
-            android:textColor="#EC9657"
-            android:textSize="58sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="200px"
+                android:text="BluePlanet"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="60sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/loginScreenButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="120px"
-            android:layout_marginTop="328dp"
-            android:layout_marginRight="120px"
-            android:backgroundTint="#FFFFFF"
-            android:text="LOGIN"
-            android:textColor="#3F51B5"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/portfolioTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="0px"
+                android:layout_marginTop="20px"
+                android:text="Portfólio"
+                android:textAlignment="center"
+                android:textColor="#EC9657"
+                android:textSize="58sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/link_registroScreen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60px"
-            android:text="Não tem conta ainda? Registre-se!"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/loginScreenButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="400dp"
+                android:layout_marginRight="120px"
+                android:backgroundTint="#FFFFFF"
+                android:text="LOGIN"
+                android:textColor="#3F51B5"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/link_registroScreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="60px"
+                android:text="Não tem conta ainda? Registre-se!"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>
