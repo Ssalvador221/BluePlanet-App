@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".ProfileScrenPage">
+    tools:context=".ProfileScrenPage1">
 
 
     <RelativeLayout

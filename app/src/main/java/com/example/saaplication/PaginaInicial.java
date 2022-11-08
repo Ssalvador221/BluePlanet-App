@@ -2,34 +2,17 @@ package com.example.saaplication;
 
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.WindowCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.graphics.Color;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
-import android.view.WindowAnimationFrameStats;
-import android.view.WindowInsetsAnimation;
-import android.view.WindowManager;
 
 import com.example.saaplication.databinding.ActivityPaginainicialBinding;
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.ktx.Firebase;
 
 public class PaginaInicial extends AppCompatActivity {
 
@@ -63,7 +46,7 @@ public class PaginaInicial extends AppCompatActivity {
                     startActivity(intentAddPostPage);
                     break;
                 case R.id.perfilPage:
-                    Intent intentProfilePage = new Intent(this, ProfileScrenPage.class);
+                    Intent intentProfilePage = new Intent(this, ProfileScrenPage1.class);
                     startActivity(intentProfilePage);
                     break;
             }
