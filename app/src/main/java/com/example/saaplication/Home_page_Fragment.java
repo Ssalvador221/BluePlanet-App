@@ -1,7 +1,9 @@
 package com.example.saaplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.core.view.WindowCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -51,6 +53,8 @@ public class Home_page_Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setMenuVisibility(true);
+        getActivity().getWindow().setStatusBarColor(Color.TRANSPARENT);
+        WindowCompat.setDecorFitsSystemWindows(getActivity().getWindow(), false);
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
