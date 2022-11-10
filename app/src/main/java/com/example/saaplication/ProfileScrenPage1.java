@@ -45,10 +45,10 @@ import java.util.UUID;
 public class ProfileScrenPage1 extends AppCompatActivity {
 
 
-    private TextView viewProfileName, btImageToProfile;
+    private TextView viewProfileName;
     private ImageView addProfileImg;
     private FirebaseStorage firebaseStorage;
-    private  StorageReference storageReference;
+    private StorageReference storageReference;
     FirebaseFirestore firestoreBancoDeDados = FirebaseFirestore.getInstance();
     String usuarioId;
     ImageButton botaoVoltarPagina;
@@ -62,10 +62,10 @@ public class ProfileScrenPage1 extends AppCompatActivity {
         setContentView(R.layout.activity_profile_scren_page);
         IniciarComponentes();
 
+        FirebaseStorage storage = FirebaseStorage.getInstance();
 
 
-        firebaseStorage = FirebaseStorage.getInstance();
-        storageReference = firebaseStorage.getReference();
+
 
         botaoVoltarPagina.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +79,7 @@ public class ProfileScrenPage1 extends AppCompatActivity {
 
         //----------------------------------------------Botão para abrir a galeria e selecionar a foto--------------------------------------------------------------
 
-        btImageToProfile.setOnClickListener(new View.OnClickListener() {
+        addProfileImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 choosePicture();
@@ -104,7 +104,7 @@ public class ProfileScrenPage1 extends AppCompatActivity {
         if (requestCode==1 && resultCode==RESULT_OK && data !=null && data.getData() !=null){
             uri_imagem = data.getData();
             addProfileImg.setImageURI(uri_imagem);
-            uploadPicture();
+//            uploadPicture();
         }
     }
 
@@ -112,44 +112,10 @@ public class ProfileScrenPage1 extends AppCompatActivity {
     //----------------------------------------------Fazer Upload das Imagens no Storage--------------------------------------------------------------
 
 
-    private void uploadPicture(){
-
-
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Carregando Imagem...");
-        progressDialog.show();
-
-
-        final String ramdowKey = UUID.randomUUID().toString();
-
-        StorageReference reference = storageReference.child("image/*" + ramdowKey);
-
-        reference.putFile(uri_imagem)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        progressDialog.dismiss();
-                        Snackbar.make(findViewById(android.R.id.content), "Image Uploaded", Snackbar.LENGTH_LONG).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        progressDialog.dismiss();
-                        Toast.makeText(getBaseContext(), "Falha ao selecionar a Imagem", Toast.LENGTH_LONG).show();
-
-                    }
-                })
-                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                        double progressPercent = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                        progressDialog.setMessage("Porcentagem: " + (int) progressPercent + "%");
-                    }
-                });
-
-
-    }
+//    private void uploadPicture(){
+//
+//
+//    }
 
 
 
@@ -178,7 +144,6 @@ public class ProfileScrenPage1 extends AppCompatActivity {
 
 
     private void IniciarComponentes() {
-        btImageToProfile = findViewById(R.id.addImageToProfile);
         addProfileImg = findViewById(R.id.addProfileImg);
         viewProfileName = findViewById(R.id.viewProfileName);
         botaoVoltarPagina = findViewById(R.id.botaoVoltarPagina);

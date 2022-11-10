@@ -10,37 +10,105 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:background="@color/white"
         android:layout_alignParentTop="true"
         android:elevation="1dp"
         app:title="Bem vindo ao BluePlanet"
-        app:titleTextColor="@color/black">
+        app:titleTextColor="@color/black"
+        app:titleMarginTop="30dp">
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
-
-    <TextView
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Veja as postagens de hoje!"
-        android:padding="12dp"
-        android:layout_marginTop="12dp"
-        android:textSize="18dp"
-        android:textColor="@color/black"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="12dp"
+                android:text="Seja bem-vindo ao seu Feed!"
+                android:textColor="@color/black"
+                android:textSize="20dp"/>
 
-    </ScrollView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                app:cardCornerRadius="8px"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/white">
+            <com.google.android.material.appbar.MaterialToolbar
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:title="João Salvador"
+                app:titleTextColor="@color/black" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/background_image"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="250dp"
+                    android:src="@drawable/like_animation"
+                    android:backgroundTint="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="290dp"
+                    app:cardCornerRadius="8px"
+                    android:layout_marginTop="180dp"
+                    android:backgroundTint="@color/white">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        app:title="João Salvador"
+                        app:titleTextColor="@color/black"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/logo"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"/>
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="256dp"
+                        android:src="@drawable/like_animation"
+                        android:backgroundTint="@color/white" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            </RelativeLayout>
     </LinearLayout>
+    </ScrollView>
 </LinearLayout>
 
 

@@ -39,9 +39,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu_viewnavegationbtt" />
+
+
+
     </RelativeLayout>
-
-
-
-
 </androidx.drawerlayout.widget.DrawerLayout>
