@@ -47,8 +47,6 @@ public class ProfileScrenPage1 extends AppCompatActivity {
 
     private TextView viewProfileName;
     private ImageView addProfileImg;
-    private FirebaseStorage firebaseStorage;
-    private StorageReference storageReference;
     FirebaseFirestore firestoreBancoDeDados = FirebaseFirestore.getInstance();
     String usuarioId;
     ImageButton botaoVoltarPagina;
@@ -104,7 +102,7 @@ public class ProfileScrenPage1 extends AppCompatActivity {
         if (requestCode==1 && resultCode==RESULT_OK && data !=null && data.getData() !=null){
             uri_imagem = data.getData();
             addProfileImg.setImageURI(uri_imagem);
-//            uploadPicture();
+//
         }
     }
 
