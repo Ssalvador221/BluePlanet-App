@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.saaplication"
         minSdk 28
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -40,7 +40,9 @@ android {
 }
 
 dependencies {
-
+    implementation 'com.firebaseui:firebase-ui-database:6.0.2'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation("com.vanniktech:android-image-cropper:4.5.0")
     implementation 'com.github.bumptech.glide:glide:4.14.2'
     implementation 'com.google.firebase:firebase-storage:20.0.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'

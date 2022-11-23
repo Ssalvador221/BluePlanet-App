@@ -21,10 +21,10 @@
 
 
             <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="1dp"
-                app:title=" ">
+                android:elevation="1dp">
 
             <ImageButton
                 android:id="@+id/botaoVoltarPagina"

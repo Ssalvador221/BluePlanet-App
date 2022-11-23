@@ -1,71 +1,123 @@
 package com.example.saaplication;
 
-import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.core.view.WindowCompat;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Home_page_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+
 public class Home_page_Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private RecyclerView blog_list_view;
+    private List<BlogPost> blog_list;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseAuth firebaseAuth;
+    private BlogRecyclerAdapter blogRecyclerAdapter;
 
-    public Home_page_Fragment() {
+    private DocumentSnapshot lastVisible;
+    private Boolean isFirstPageFirstLoad = true;
+
+    public void HomeFragment() {
         // Required empty public constructor
     }
 
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Home_page_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Home_page_Fragment newInstance(String param1, String param2) {
-        Home_page_Fragment fragment = new Home_page_Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setMenuVisibility(true);
-        getActivity().getWindow().setStatusBarColor(Color.TRANSPARENT);
-        WindowCompat.setDecorFitsSystemWindows(getActivity().getWindow(), false);
-
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        blog_list = new ArrayList<>();
+        blog_list_view = view.findViewById(R.id.blog_post_view);
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        blogRecyclerAdapter = new BlogRecyclerAdapter(blog_list);
+        blog_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
+        blog_list_view.setAdapter(blogRecyclerAdapter);
+        if (firebaseAuth.getCurrentUser() != null) {
+            firebaseFirestore = FirebaseFirestore.getInstance();
+
+            blog_list_view.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                @Override
+                public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                    super.onScrolled(recyclerView, dx, dy);
+                    Boolean reachedBottom = !recyclerView.canScrollVertically(1);
+                    if (reachedBottom) {
+                        loadMorePost();
+                    }
+                }
+            });
+
+            Query firstQuery = firebaseFirestore.collection("Posts").orderBy("timestamp", Query.Direction.DESCENDING).limit(5);
+
+            firstQuery.addSnapshotListener(getActivity(), new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot documentSnapshots, @Nullable FirebaseFirestoreException e) {
+                    if (isFirstPageFirstLoad) {
+                        lastVisible = documentSnapshots.getDocuments().get(documentSnapshots.size() - 1);
+                    }
+
+                    for (DocumentChange doc : documentSnapshots.getDocumentChanges()) {
+                        if (doc.getType() == DocumentChange.Type.ADDED) {
+                            String blogPostId = doc.getDocument().getId();
+                            BlogPost blogPost = doc.getDocument().toObject(BlogPost.class).withId(blogPostId);
+                            if (isFirstPageFirstLoad) {
+                                blog_list.add(blogPost);
+                            } else {
+                                blog_list.add(0, blogPost);
+                            }
+                            blogRecyclerAdapter.notifyDataSetChanged();
+                        }
+                    }
+                    isFirstPageFirstLoad = false;
+                }
+            });
+        }
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_page_, container, false);
+        return view;
     }
+
+    public void loadMorePost() {
+        Query nextQuery = firebaseFirestore.collection("Posts").orderBy("timestamp", Query.Direction.DESCENDING).startAfter(lastVisible).limit(5);
+
+        nextQuery.addSnapshotListener(getActivity(), new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot documentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if (!documentSnapshots.isEmpty()) {
+                    lastVisible = documentSnapshots.getDocuments().get(documentSnapshots.size() - 1);
+                    for (DocumentChange doc : documentSnapshots.getDocumentChanges()) {
+                        if (doc.getType() == DocumentChange.Type.ADDED) {
+                            String blogPostId = doc.getDocument().getId();
+                            BlogPost blogPost = doc.getDocument().toObject(BlogPost.class).withId(blogPostId);
+                            blog_list.add(blogPost);
+                            blogRecyclerAdapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+        });
+    }
+
 }

@@ -11,11 +11,13 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -48,6 +50,7 @@ public class ProfileScrenPage1 extends AppCompatActivity {
     private TextView viewProfileName;
     private ImageView addProfileImg;
     FirebaseFirestore firestoreBancoDeDados = FirebaseFirestore.getInstance();
+    Toolbar toolBar;
     String usuarioId;
     ImageButton botaoVoltarPagina;
     private  Uri uri_imagem;
@@ -61,7 +64,6 @@ public class ProfileScrenPage1 extends AppCompatActivity {
         IniciarComponentes();
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
-
 
 
 
@@ -87,6 +89,8 @@ public class ProfileScrenPage1 extends AppCompatActivity {
 
     }
 
+
+
     private void choosePicture() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -102,7 +106,7 @@ public class ProfileScrenPage1 extends AppCompatActivity {
         if (requestCode==1 && resultCode==RESULT_OK && data !=null && data.getData() !=null){
             uri_imagem = data.getData();
             addProfileImg.setImageURI(uri_imagem);
-//
+            uploadPicture();
         }
     }
 
@@ -110,10 +114,30 @@ public class ProfileScrenPage1 extends AppCompatActivity {
     //----------------------------------------------Fazer Upload das Imagens no Storage--------------------------------------------------------------
 
 
-//    private void uploadPicture(){
-//
-//
-//    }
+     private void uploadPicture() {
+      String filename = UUID.randomUUID().toString();
+      final StorageReference ref = FirebaseStorage.getInstance().getReference("/images/" + filename);
+      ref.putFile(uri_imagem)
+              .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                  @Override
+                  public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                      ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                          @Override
+                          public void onSuccess(Uri uri) {
+                              Log.i("Imagem salva no banco", uri.toString());
+
+                          }
+                      });
+                  }
+              })
+              .addOnFailureListener(new OnFailureListener() {
+                  @Override
+                  public void onFailure(@NonNull Exception e) {
+                      Log.e("Deu ruim", e.getMessage(), e);
+                  }
+              });
+
+      }
 
 
 
@@ -142,6 +166,7 @@ public class ProfileScrenPage1 extends AppCompatActivity {
 
 
     private void IniciarComponentes() {
+        toolBar = findViewById(R.id.toolBar);
         addProfileImg = findViewById(R.id.addProfileImg);
         viewProfileName = findViewById(R.id.viewProfileName);
         botaoVoltarPagina = findViewById(R.id.botaoVoltarPagina);
