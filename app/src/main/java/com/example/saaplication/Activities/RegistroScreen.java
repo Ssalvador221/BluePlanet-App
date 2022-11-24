@@ -1,9 +1,13 @@
-package com.example.saaplication;
+package com.example.saaplication.Activities;
 
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 
@@ -12,18 +16,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.saaplication.R;
+import com.example.saaplication.databinding.FragmentHomePageBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,12 +39,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Timer;
 
 
 public class RegistroScreen extends AppCompatActivity {
@@ -48,6 +57,11 @@ public class RegistroScreen extends AppCompatActivity {
     private Button btcadastrar;
     ImageView botaoVoltarPagina;
     private ProgressBar progressBar;
+
+    ImageView ImgUserPhoto;
+    static int PReqCode = 1 ;
+    static int REQUESCODE = 1 ;
+    Uri pickedImgUri;
 
     String erro;
     String UsuarioId;
@@ -81,14 +95,14 @@ public class RegistroScreen extends AppCompatActivity {
                     Snackbar mysnack = Snackbar.make(view, "Preencha todos os campos Solicitados!", Snackbar.LENGTH_SHORT);
                     mysnack.getView().setBackgroundColor(Color.parseColor("#ffffff"));
                     mysnack.setTextColor(Color.parseColor("#000000"));
+
                     mysnack.show();
                 } else {
                     cadastrarUsuario(view);
+
                 }
             }
         });
-
-
 
 
         botaoVoltarPagina.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +113,53 @@ public class RegistroScreen extends AppCompatActivity {
         });
 
 
+
     }
+
+
+    private void updateUserInfo(final String nome, Uri pickedImgUri, final FirebaseUser currentUser) {
+
+        StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("foto_Perfil");
+        final StorageReference imageFilePath = mStorage.child(pickedImgUri.getLastPathSegment());
+        imageFilePath.putFile(pickedImgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+
+                imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+
+                        UserProfileChangeRequest profleUpdate = new UserProfileChangeRequest.Builder()
+                                .setDisplayName(nome)
+                                .setPhotoUri(uri)
+                                .build();
+                        currentUser.updateProfile(profleUpdate)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            updateUI();
+                                        }
+                                    }
+                                });
+                    }
+                });
+            }
+        });
+    }
+
+    private void updateUI() {
+        Intent homeActivity = new Intent(getApplicationContext(), FragmentHomePageBinding.class);
+        startActivity(homeActivity);
+        finish();
+    }
+
+
+
+
 
     private void cadastrarUsuario(View view) {
 
@@ -121,6 +181,7 @@ public class RegistroScreen extends AppCompatActivity {
                     mysnack1.getView().setBackgroundColor(Color.parseColor("#00ff37"));
                     mysnack1.setTextColor(Color.parseColor("#ffffff"));
                     mysnack1.show();
+                    updateUserInfo( nome ,pickedImgUri, auth.getCurrentUser());
 
                     namebox.setText("");
                     emailbox.setText("");

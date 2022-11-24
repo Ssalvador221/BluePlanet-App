@@ -1,4 +1,4 @@
- package com.example.saaplication;
+ package com.example.saaplication.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.example.saaplication.R;
 
  public class MainActivity extends AppCompatActivity {
 

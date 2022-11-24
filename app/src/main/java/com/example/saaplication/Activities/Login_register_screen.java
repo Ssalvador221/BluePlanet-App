@@ -1,29 +1,18 @@
-package com.example.saaplication;
+package com.example.saaplication.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.transition.Explode;
-import android.transition.Fade;
-import android.transition.Scene;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
-import android.transition.TransitionManager;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.saaplication.R;
 
 public class Login_register_screen extends AppCompatActivity {
 
@@ -79,7 +68,7 @@ public class Login_register_screen extends AppCompatActivity {
        regislink.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Intent intent = new Intent(Login_register_screen.this,RegistroScreen.class);
+               Intent intent = new Intent(Login_register_screen.this, RegistroScreen.class);
                startActivity(intent);
                Toast.makeText(Login_register_screen.this, "Bem-Vindo a Tela de Registro",Toast.LENGTH_LONG).show();
            }

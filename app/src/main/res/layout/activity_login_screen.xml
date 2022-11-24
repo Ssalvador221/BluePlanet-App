@@ -10,7 +10,7 @@
     android:layout_centerInParent="true"
     android:layout_centerVertical="true"
     android:id="@+id/loginScreen"
-    tools:context=".LoginScreen">
+    tools:context=".Activities.LoginScreen">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

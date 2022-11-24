@@ -1,14 +1,12 @@
-package com.example.saaplication;
+package com.example.saaplication.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
+import androidx.core.view.WindowCompat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,32 +14,24 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.example.saaplication.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
+
 import java.util.UUID;
 
 public class ProfileScrenPage1 extends AppCompatActivity {
@@ -50,10 +40,13 @@ public class ProfileScrenPage1 extends AppCompatActivity {
     private TextView viewProfileName;
     private ImageView addProfileImg;
     FirebaseFirestore firestoreBancoDeDados = FirebaseFirestore.getInstance();
-    Toolbar toolBar;
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    FirebaseUser userId;
+    FirebaseAuth mAuth;
     String usuarioId;
     ImageButton botaoVoltarPagina;
-    private  Uri uri_imagem;
+    private Uri uri_imagem;
+    Toolbar toolbar;
 
 
 
@@ -61,11 +54,17 @@ public class ProfileScrenPage1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_scren_page);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         IniciarComponentes();
 
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        decorView.setSystemUiVisibility(uiOptions);
+
         FirebaseStorage storage = FirebaseStorage.getInstance();
-
-
+        mAuth = FirebaseAuth.getInstance();
+        userId = mAuth.getCurrentUser();
 
         botaoVoltarPagina.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,10 +84,7 @@ public class ProfileScrenPage1 extends AppCompatActivity {
                 choosePicture();
             }
         });
-
-
     }
-
 
 
     private void choosePicture() {
@@ -107,6 +103,7 @@ public class ProfileScrenPage1 extends AppCompatActivity {
             uri_imagem = data.getData();
             addProfileImg.setImageURI(uri_imagem);
             uploadPicture();
+
         }
     }
 
@@ -125,7 +122,6 @@ public class ProfileScrenPage1 extends AppCompatActivity {
                           @Override
                           public void onSuccess(Uri uri) {
                               Log.i("Imagem salva no banco", uri.toString());
-
                           }
                       });
                   }
@@ -136,7 +132,6 @@ public class ProfileScrenPage1 extends AppCompatActivity {
                       Log.e("Deu ruim", e.getMessage(), e);
                   }
               });
-
       }
 
 
@@ -159,17 +154,19 @@ public class ProfileScrenPage1 extends AppCompatActivity {
                 }
             }
         });
+
+
+
     }
 
 
-
-
-
     private void IniciarComponentes() {
-        toolBar = findViewById(R.id.toolBar);
         addProfileImg = findViewById(R.id.addProfileImg);
         viewProfileName = findViewById(R.id.viewProfileName);
         botaoVoltarPagina = findViewById(R.id.botaoVoltarPagina);
+
+        Glide.with(ProfileScrenPage1.this).load(userId.getPhotoUrl()).into(addProfileImg);
+
     }
 
 
