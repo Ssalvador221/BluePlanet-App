@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home" android:icon="@drawable/house_icon"
+        android:id="@+id/homePage"/>
+    <item android:title="Add" android:icon="@drawable/ic_add_photo"
+        android:id="@+id/photoPage"/>
+    <item android:title="Perfil" android:icon="@drawable/person_pin_icon"
+        android:id="@+id/perfilPage"/>
+</menu>

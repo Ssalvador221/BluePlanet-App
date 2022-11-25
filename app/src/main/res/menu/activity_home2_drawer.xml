@@ -6,22 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home_black_24dp"
+            android:icon="@drawable/house_icon"
             android:title="Home" />
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_person_black_24dp"
+            android:icon="@drawable/person_pin_icon"
             android:title="Profile" />
         <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_settings_black_24dp"
-            android:title="Settings" />
+            android:id="@+id/searchPage"
+            android:icon="@drawable/search_ic"
+            android:title="SearchPage" />
         <item
             android:id="@+id/nav_signout"
-            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:icon="@drawable/logout_icon"
             android:title="Sign Out" />
     </group>
-
-
-
 </menu>

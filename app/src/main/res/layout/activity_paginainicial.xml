@@ -9,31 +9,6 @@
     tools:context=".Activities.PaginaInicial">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/desc_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/orange"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </androidx.appcompat.widget.Toolbar>
-
-
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_post_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:backgroundTint="@color/orange"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavegationView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/add_btn"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavegationView"
@@ -58,7 +33,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavegationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/desc_toolbar">
+        app:layout_constraintTop_toTopOf="parent">
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

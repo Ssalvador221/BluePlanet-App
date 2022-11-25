@@ -24,7 +24,9 @@
                 android:id="@+id/toolBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="1dp">
+                android:elevation="1dp"
+                android:padding="10dp"
+                app:menu="@menu/activity_home2_drawer">
 
             <ImageButton
                 android:id="@+id/botaoVoltarPagina"
@@ -119,7 +121,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:text="1,500"
                         android:textSize="27dp"
                         android:textColor="@color/black"/>
                 </LinearLayout>
@@ -138,7 +140,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:text="200"
                         android:textSize="27dp"
                         android:textColor="@color/black"/>
                 </LinearLayout>

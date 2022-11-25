@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:backgroundTint="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/post_image"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/post_title_txtview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:text="Post Title"/>
+
+        <TextView
+            android:id="@+id/post_desc_txtview"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:textColor="@color/likeBtnGray"
+            android:text="Post Description"/>
+
+        <TextView
+            android:id="@+id/post_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="João"
+            android:textSize="15sp"
+            android:fontFamily="serif"
+            android:gravity="end"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

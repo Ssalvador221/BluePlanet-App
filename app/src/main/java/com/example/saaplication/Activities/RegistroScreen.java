@@ -113,7 +113,6 @@ public class RegistroScreen extends AppCompatActivity {
         });
 
 
-
     }
 
 

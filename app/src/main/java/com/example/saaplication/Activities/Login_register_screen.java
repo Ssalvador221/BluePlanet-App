@@ -6,9 +6,14 @@ import androidx.core.view.WindowCompat;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +24,8 @@ public class Login_register_screen extends AppCompatActivity {
 
     TextView regislink;
 
+    Animation rotateAnimation;
+    ImageView  imageView;
 
 
     @Override
@@ -28,9 +35,12 @@ public class Login_register_screen extends AppCompatActivity {
         getWindow().setStatusBarColor(Color.TRANSPARENT);
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
+        imageView = (ImageView) findViewById(R.id.planetAnimation);
+
+        rotateAnimation();
+
 //Animation Button Login_register_screen Screen
         Button login1 = findViewById(R.id.loginScreenButton);
-
 
         login1.setAlpha(0f);
 
@@ -43,6 +53,15 @@ public class Login_register_screen extends AppCompatActivity {
         login1.setTranslationY(50);
 
         login1.animate().alpha(1f).translationYBy(-50).setDuration(1500);
+
+
+        RelativeLayout relativeLayout = findViewById(R.id.login_and_registro);
+
+        AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        animationDrawable.start();
+
 
 
 
@@ -77,5 +96,10 @@ public class Login_register_screen extends AppCompatActivity {
        regislink.setPaintFlags(regislink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
 
+    }
+
+    private void rotateAnimation() {
+        rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotato_anim);
+        imageView.startAnimation(rotateAnimation);
     }
 }
