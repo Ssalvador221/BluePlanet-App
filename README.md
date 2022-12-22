@@ -9,10 +9,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 [![first-timers-only Friendly](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](http://www.firsttimersonly.com/)
 
-An instantly ready, full-featured online IDE for web development on any device
-with a browser. Enabling you to start new projects quickly and prototype
-rapidly. With CodeSandbox, you can create web apps, experiment with code, test
-ideas, and share creations easily.
+Este é nosso projeto final do Curso de Desenvolvimento de Sistemas SESI SENAI, eu e meu companheiro Erick Bertoti desenvolvemos esse App com intuito de criar um portfólio institucional para os alunos de cada escola. O aplicativo é 100% funcional e quem tiver o interesse em baixar e ver como é pode ficar a vontade. Espero que goste e qualquer erro ou bug nos informar para corregirmos. 👍 
 
 
  
