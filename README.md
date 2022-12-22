@@ -19,7 +19,7 @@ ideas, and share creations easily.
 ## Contributors ✨
 <table>
 <tr>
-    <td align="center"><a href="https://github.com/Ssalvador221"><img src="https://avatars.githubusercontent.com/u/82125523?v=4" width="100px;" alt="João Salvador"/><br /><sub><b>João Salvador</b></sub></a><br /><a title="Answering Questions">💬</a> <a href="#blog-CompuIves" </a> <a  title="Bug reports">🐛</a> <a  title="Code">💻</a> <a title="Design">🎨</a> <a title="Documentation">📖</a> <a title="Lider do Time</a>🧠<a  title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a  title="Reviewed Pull Requests">👀</a> <a title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Ssalvador221"><img src="https://avatars.githubusercontent.com/u/82125523?v=4" width="100px;" alt="João Salvador"/><br /><sub><b>João Salvador</b></sub></a><br/><a href="#blog-CompuIves" </a><a  title="Code">💻</a> <a title="Design">🎨</a></td>
    <td align="center"><a href="https://github.com/ErickBertoti"><img src="https://avatars.githubusercontent.com/u/95359762?v=4" width="100px;" alt="Erick Bertoti"/><br /><sub><b>Erick Bertoti</b></sub></a><br /><a title="Code">💻</a><a title="Desing">🎨</a></td>
 </tr>
 </table>
