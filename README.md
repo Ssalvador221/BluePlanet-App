@@ -18,5 +18,5 @@ ideas, and share creations easily.
  
 ## Contributors ✨
 <tr>
-    <td align="center"><a href="https://github.com/ErickBertoti"><img src="https://avatars3.githubusercontent.com/u/1239401?v=4" width="100px;" alt="Erick Bertoti"/><br /><sub><b>Erick Bertoti</b></sub></a><br /><a href="https://github.com/Ssalvador221?tab=repositories" title="Desenvolvedor">💻</a> <a href="https://github.com/Ssalvador221/BluePlanet-App/commits?author=ErickBertoti" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ErickBertoti"><img src="https://avatars.githubusercontent.com/u/95359762?v=4" width="100px;" alt="Erick Bertoti"/><br /><sub><b>Erick Bertoti</b></sub></a><br /><a href="https://github.com/Ssalvador221?tab=repositories" title="Desenvolvedor"></a> <a href="https://github.com/Ssalvador221/BluePlanet-App/commits?author=ErickBertoti" title="Code">💻</a></td>
 </tr>
