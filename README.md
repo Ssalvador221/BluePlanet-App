@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://codesandbox.io">
-    <img src="https://codesandbox.io/static/img/banner.png?v=2" height="300px">
+  <a href="https://github.com/Ssalvador221/BluePlanet-App">
+    <img src="https://media.licdn.com/dms/image/C4D22AQGAwzB5_8l3Xg/feedshare-shrink_1280/0/1668088320523?e=1674691200&v=beta&t=n675CzO54kXXlOuanoGvprSQPTPG6GoabYDndFhfEr4" height="300px">
   </a>
 </p>
 
